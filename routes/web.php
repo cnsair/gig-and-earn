@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,8 +52,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'admin'], function() {
 
         //view analytics page
-        Route::get('/admin/dashboard', function () {
-            return view('admin.dashboard'); })
+        // Route::get('/admin/dashboard', function () {
+        //     return view('admin.dashboard'); })
+        //     ->name('admin.dashboard');
+        
+        //Show in Show Dashboard
+        Route::get('/admin/dashboard', [ShowController::class, 'showInAdmin'])
             ->name('admin.dashboard');
 
         //view analytics page

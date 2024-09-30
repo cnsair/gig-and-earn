@@ -46,9 +46,27 @@
                             </h2>
                         </div>
 
-                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            Video Plays Here
-                        </p>
+                        @forelse ( $prof_vid_section as $prof_vid )
+                            
+                            @php
+                                $vid = $prof_vid->file;
+                                $file_url = asset('storage/' . $vid);
+                                $file_ext = pathinfo($vid, PATHINFO_EXTENSION);
+                                //$file_ext = $file->extension();
+                            @endphp
+
+                            @if ( $file_ext == 'mp4' || $file_ext == 'flv' )
+                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                    <video width="100%" height="100%" controls>
+                                        <source src="{{ $file_url }}" type="video/mp4">
+                                    </video>
+                                </p>
+                            @endif
+                        @empty
+                            <div class="container">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        @endforelse
 
                         <p class="mt-4 text-sm">
                             <a href="{{ route('member.full-access') }}" class="inline-flex items-center font-semibold text-indigo-700">
@@ -71,9 +89,27 @@
                             </h2>
                         </div>
 
-                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            Video Plays Here
-                        </p>
+                        @forelse ( $prof_vid_section as $prof_vid )
+                            
+                            @php
+                                $vid = $prof_vid->file;
+                                $file_url = asset('storage/' . $vid);
+                                $file_ext = pathinfo($vid, PATHINFO_EXTENSION);
+                                //$file_ext = $file->extension();
+                            @endphp
+
+                            @if ( $file_ext == 'mp4' || $file_ext == 'flv' )
+                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                    <video width="100%" height="100%" controls>
+                                        <source src="{{ $file_url }}" type="video/mp4">
+                                    </video>
+                                </p>
+                            @endif
+                        @empty
+                            <div class="container">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        @endforelse
 
                         <p class="mt-4 text-sm">
                             <a href="{{ route('member.full-access') }}" class="inline-flex items-center font-semibold text-indigo-700">
