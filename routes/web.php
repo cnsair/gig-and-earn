@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UploadController;
@@ -57,21 +58,32 @@ Route::group(['middleware' => 'auth'], function() {
         //     ->name('admin.dashboard');
         
         //Show in Show Dashboard
-        Route::get('/admin/dashboard', [ShowController::class, 'showInAdmin'])
+        Route::get('/admin/dashboard', [DashboardController::class, 'showInAdmin'])
             ->name('admin.dashboard');
-
-        //view analytics page
-        Route::get('/admin/analytics', function () {
-            return view('admin.analytics'); })
-            ->name('admin.analytics');
+        
+        //Show in Show Dashboard
+        Route::get('/admin/show', [ShowController::class, 'showInAdmin'])
+            ->name('upload.show');
 
         // //view upload page
         Route::get('/admin/upload',  [UploadController::class, 'create'])
             ->name('upload.create');
 
         //view upload page
-        Route::post('/admin/upload',  [UploadController::class, 'store'])
+        Route::post('/admin/upload', [UploadController::class, 'store'])
             ->name('upload.store');
+
+        //Edit page
+        Route::get('/admin/edit/{upload}', [UploadController::class,'edit'])
+            ->name('upload.edit');
+    
+        //Update
+        Route::patch('/admin/edit/{upload}', [UploadController::class, 'update'])
+            ->name('upload.update');
+    
+        //delete
+        Route::delete('/admin/edit/{upload}', [UploadController::class, 'destroy'])
+            ->name('upload.destroy');
 
     });
 

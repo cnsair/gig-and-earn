@@ -55,12 +55,16 @@
                                 //$file_ext = $file->extension();
                             @endphp
 
-                            @if ( $file_ext == 'mp4' || $file_ext == 'flv' )
+                            @if ( $prof_vid->status == 1 )
                                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                                     <video width="100%" height="100%" controls>
                                         <source src="{{ $file_url }}" type="video/mp4">
                                     </video>
                                 </p>
+                            @else
+                                <div class="container">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
                             @endif
                         @empty
                             <div class="container">
@@ -89,21 +93,25 @@
                             </h2>
                         </div>
 
-                        @forelse ( $prof_vid_section as $prof_vid )
+                        @forelse ( $course_vid_section as $course_vid )
                             
                             @php
-                                $vid = $prof_vid->file;
+                                $vid = $course_vid->file;
                                 $file_url = asset('storage/' . $vid);
                                 $file_ext = pathinfo($vid, PATHINFO_EXTENSION);
                                 //$file_ext = $file->extension();
                             @endphp
 
-                            @if ( $file_ext == 'mp4' || $file_ext == 'flv' )
+                            @if ( $course_vid->status == 1 )
                                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                                     <video width="100%" height="100%" controls>
                                         <source src="{{ $file_url }}" type="video/mp4">
                                     </video>
                                 </p>
+                            @else
+                                <div class="container">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
                             @endif
                         @empty
                             <div class="container">

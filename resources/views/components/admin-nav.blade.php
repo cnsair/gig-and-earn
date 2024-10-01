@@ -33,10 +33,16 @@
         {{ __('Upload Files') }}
     </a>
 
-    <a class="{{ $active === route('admin.analytics') ? 'active font-semibold ' : "" }}
+    <a class="{{ $active === route('upload.show') ? 'active font-semibold ' : "" }}
         text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
-        href="{{ route('admin.analytics') }}" >
-        {{ __('Analytics') }}
+        href="{{ route('upload.show') }}" >
+        {{ __('Show Uploads') }}
+    </a>
+
+    <a class="{{ $active === route('upload.show') ? 'active font-semibold ' : "" }}
+        text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
+        href="{{ route('upload.show') }}" >
+        {{ __('Anything') }}
     </a>
 
 </div>
