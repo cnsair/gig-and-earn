@@ -16,7 +16,7 @@
                     <div class="max-w-xl">
                       
                         <h1 class="mt-3 text-2xl font-medium text-gray-900">
-                            Edit Video Advert
+                            Edit Video Advert 
                         </h1>
                         
                         <x-validation-errors class="mb-4" />
@@ -32,7 +32,7 @@
                                 </x-success-msg>
                             @elseif (session('status') === 'failed')
                                 <x-failed-msg>
-                                    {{ __('Something went wrong!') }}
+                                    {{ __('Something went wrong! Please try again.') }}
                                 </x-failed-msg>
                             @endif
 
