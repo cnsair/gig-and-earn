@@ -132,7 +132,7 @@
                             </div>
                             
                         @empty
-                            <p>Nothing to display</p>
+                            <p>Nothing to display! Please reload</p>
                         @endforelse
                     </div>
 
