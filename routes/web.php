@@ -51,14 +51,9 @@ Route::group(['middleware' => 'auth'], function() {
     //Must be Admin
     //===========================
     Route::group(['middleware' => 'admin'], function() {
-
-        //view analytics page
-        // Route::get('/admin/dashboard', function () {
-        //     return view('admin.dashboard'); })
-        //     ->name('admin.dashboard');
         
         //Show in Show Dashboard
-        Route::get('/admin/dashboard', [DashboardController::class, 'showInAdmin'])
+        Route::get('/admin/dashboard', [DashboardController::class, 'showInDashboard'])
             ->name('admin.dashboard');
         
         //Show in Show Dashboard

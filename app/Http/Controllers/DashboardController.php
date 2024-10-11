@@ -7,7 +7,7 @@ use App\Models\Upload;
 class DashboardController extends Controller
 {
     //Controller that renders posted items
-    public function showInAdmin(){
+    public function showInDashboard(){
         
         $prof_vid_section = Upload::where('type', 1)
                                     ->orderBy('id', 'desc')
