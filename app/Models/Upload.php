@@ -21,4 +21,11 @@ class Upload extends Model
         'file',
         'status',
     ];
+
+    public function toggleStatus(){
+        
+        $this->status = !$this->status;
+        $this->update();
+    }
+
 }

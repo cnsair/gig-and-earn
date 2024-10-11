@@ -39,27 +39,31 @@
                             <div>
                                 <x-label for="type" value="{{ __('Video For') }}" />
                                 <select class="block mt-1 w-full" required name="type">
-                                    <option selected value="1">Professionals</option>
-                                    <option value="2">Courses</option>
+                                    <option value="1" {{ (old('type', $upload->type) == 1) ? 'selected' : '' }}>
+                                        Professionals
+                                    </option>
+                                    <option value="2" {{ (old('type', $upload->type) == 2) ? 'selected' : '' }}>
+                                        Courses
+                                    </option>
                                 </select>
                                 <x-input-error for="type" class="mt-2" />
                             </div>
 
                             <div>
                                 <x-label for="title" value="{{ __('Title') }}" />
-                                <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus autocomplete="title" />
+                                <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', $upload->title)" required autofocus autocomplete="title" />
                                 <x-input-error for="title" class="mt-2" />
                             </div>
 
                             <div>
                                 <x-label for="description" value="{{ __('Description (Optional)') }}" />
-                                <textarea id="description" class="block mt-1 w-full" type="text" name="description" autocomplete="description">{{ old('description') }}</textarea>
+                                <textarea id="description" class="block mt-1 w-full" type="text" name="description" autocomplete="description">{{ old('description', $upload->description) }}</textarea>
                                 <x-input-error for="description" class="mt-2" />
                             </div>
 
                             <div>
                                 <x-label for="file" value="{{ __('File') }}" />
-                                <x-input id="file" class="block mt-1 w-full" type="file" name="file" :value="old('file')" required />
+                                <x-input id="file" class="block mt-1 w-full" type="file" name="file"/>
                                 <x-input-error for="file" class="mt-2" />
                             </div>
                         

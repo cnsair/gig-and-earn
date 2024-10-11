@@ -55,7 +55,7 @@ class UploadController extends Controller
         $request->user()->fill($request->validated());
 
         // Checks status of file selected: Max file size is 10,240mb
-        if ( $request == true) { 
+        if ( $request ) { 
 
             $upload = new Upload();
 
@@ -87,22 +87,49 @@ class UploadController extends Controller
      */
     public function edit(Upload $upload)
     {
-        return view('upload.edit', ['upload' => $upload ]);
+        return view('admin.edit', ['upload' => $upload ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UploadRequest $request, $upload): RedirectResponse
     {
-        //
+        $request->user()->fill($request->validated());
+
+        if ( $request ) {
+
+            $upload = Upload::find($upload);
+
+            $upload->title = $request->input('title');
+            $upload->type = $request->input('type');
+            $upload->description = $request->input('description');
+            
+            $selected_file = $request->file('file');
+            if ( !empty($selected_file) ) {
+                $upload->file = $request->file('file')->store('uploads', 'public');
+            }
+
+            $upload->update();
+
+            return Redirect::route('upload.show')->with('status', 'success');
+        }
+        else{
+            return Redirect::route('upload.show')->with('status', 'failed');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($upload): RedirectResponse
     {
-        //
+        $upload = Upload::find($upload);
+        $upload->delete();
+        
+        // Delete the profile picture from storage
+        Storage::disk('public')->delete($upload->file);
+
+        return Redirect::route('upload.show')->with('status', 'success');
     }
 }

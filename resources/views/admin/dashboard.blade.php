@@ -1,9 +1,3 @@
-<style>
-    /* a.pass:hover{
-        color: #f8e694;
-    } */
-</style>
-
 @php
     $active = route('dashboard');
 @endphp
@@ -55,17 +49,12 @@
                                 //$file_ext = $file->extension();
                             @endphp
 
-                            @if ( $prof_vid->status == 1 )
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    <video width="100%" height="100%" controls>
-                                        <source src="{{ $file_url }}" type="video/mp4">
-                                    </video>
-                                </p>
-                            @else
-                                <div class="container">
-                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            @endif
+                            <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                <video width="100%" height="100%" controls>
+                                    <source src="{{ $file_url }}" type="video/mp4">
+                                </video>
+                            </p>
+                         
                         @empty
                             <div class="container">
                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -102,17 +91,11 @@
                                 //$file_ext = $file->extension();
                             @endphp
 
-                            @if ( $course_vid->status == 1 )
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    <video width="100%" height="100%" controls>
-                                        <source src="{{ $file_url }}" type="video/mp4">
-                                    </video>
-                                </p>
-                            @else
-                                <div class="container">
-                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            @endif
+                            <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                <video width="100%" height="100%" controls>
+                                    <source src="{{ $file_url }}" type="video/mp4">
+                                </video>
+                            </p>
                         @empty
                             <div class="container">
                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

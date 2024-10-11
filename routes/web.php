@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UploadController;
+use App\Models\Upload;
 use Illuminate\Support\Facades\Route;
 
 
@@ -69,16 +70,25 @@ Route::group(['middleware' => 'auth'], function() {
             ->name('upload.store');
 
         //Edit page
-        Route::get('/admin/edit/{upload}', [UploadController::class,'edit'])
+        Route::get('/admin/{upload}/edit', [UploadController::class,'edit'])
             ->name('upload.edit');
     
         //Update
-        Route::patch('/admin/edit/{upload}', [UploadController::class, 'update'])
+        Route::patch('/admin/{upload}/edit', [UploadController::class, 'update'])
             ->name('upload.update');
     
         //delete
-        Route::delete('/admin/edit/{upload}', [UploadController::class, 'destroy'])
+        Route::delete('/admin/{upload}/edit', [UploadController::class, 'destroy'])
             ->name('upload.destroy');
+
+
+        //Toggle betweeen Show and Hide Upload
+        Route::put('/admin//{upload}show', function (Upload $upload){
+        
+            $upload->toggleStatus();
+            return redirect()->back()->with('success','done');
+            
+        })->name('upload.toggle');
 
     });
 

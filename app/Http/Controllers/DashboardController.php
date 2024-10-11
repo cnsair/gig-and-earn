@@ -10,9 +10,11 @@ class DashboardController extends Controller
     public function showInDashboard(){
         
         $prof_vid_section = Upload::where('type', 1)
+                                    ->where('status', 1)
                                     ->orderBy('id', 'desc')
                                     ->limit(1)->get();
         $course_vid_section = Upload::where('type', 2)
+                                    ->where('status', 1)
                                     ->orderBy('id', 'desc')
                                     ->limit(1)->get();        
 

@@ -28,7 +28,7 @@ class UploadRequest extends FormRequest
 
             'title' => ['required', 'string', 'max:100'],
             'description' => ['string', 'max:1500'],
-            'file' => ['required', 'mimes:mp4,avi,flv', 'max:20480'],
+            'file' => ['mimes:mp4,avi,flv', 'max:20480'],
         ];
     }
 }
