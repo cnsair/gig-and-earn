@@ -103,7 +103,7 @@ Route::group(['middleware' => 'auth'], function() {
         //Edit page
         Route::get('/admin/{job}/edit-job', [PostjobController::class,'edit'])
             ->name('job.edit');
-    
+
         //Update action
         Route::patch('/admin/{job}/edit-job', [PostjobController::class, 'update'])
             ->name('job.update');

@@ -27,8 +27,6 @@
                                 @php
                                     $vid = $prof_vid->file;
                                     $file_url = asset('storage/' . $vid);
-                                    $file_ext = pathinfo($vid, PATHINFO_EXTENSION);
-                                    //$file_ext = $file->extension();
                                 @endphp
 
                                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">
@@ -87,8 +85,6 @@
                                 @php
                                     $vid = $course_vid->file;
                                     $file_url = asset('storage/' . $vid);
-                                    $file_ext = pathinfo($vid, PATHINFO_EXTENSION);
-                                    //$file_ext = $file->extension();
                                 @endphp
 
                                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">

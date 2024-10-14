@@ -6,6 +6,7 @@ use App\Http\Requests\PostjobRequest;
 use App\Models\Postjob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class PostjobController extends Controller
 {
@@ -64,24 +65,56 @@ class PostjobController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Postjob $postjob)
+    public function edit(Postjob $job)
     {
-        return view('admin.edit-job', ['job' => $postjob ]);
+        return view('admin.edit-job', ['job' => $job ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Postjob $postjob)
+    public function update( PostjobRequest $request, $job )
     {
-        //
+        $request->user()->fill($request->validated());
+
+        if ( $request ) {
+
+            $job = Postjob::find($job);
+
+            $job->category = $request->input('category');
+            $job->title = $request->input('title');
+            $job->company = $request->input('company');
+            $job->web_address = $request->input('web_address');
+            $job->location = $request->input('location');
+            $job->price_range = $request->input('price_range');
+            $job->description = $request->input('description');
+            
+            $selected_file = $request->file('file');
+            if ( !empty($selected_file) ) {
+                Storage::disk('public')->delete($job->file); //delete old file
+                $job->file = $request->file('file')->store('uploads', 'public'); //upload new file
+            }
+
+            $job->update();
+
+            return Redirect::route('job.edit', ['job' => $job])->with('status', 'success');
+        }
+        else{
+            return Redirect::route('job.edit', ['job' => $job])->with('status', 'failed');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Postjob $postjob)
+    public function destroy( $job )
     {
-        //
+        $job = Postjob::find($job);
+        $job->delete();
+
+        // Delete the profile picture from storage
+        Storage::disk('public')->delete($job->file);
+
+        return Redirect::route('job.show')->with('status', 'success');
     }
 }

@@ -2,24 +2,6 @@
     $active = route('job.show');
 @endphp
 
-<style>
-    .one-line{
-        display: block;
-    }
-    .space{
-        padding: 0px 20px 0px 20px;
-    }
-
-    .oneline{
-        display: inline-flex !important;
-    }
-
-    .padn{
-        padding: 1%;
-    }
-   
-</style>
-
 <x-app-layout>
     <x-slot name="header">
         <x-admin-nav :active="$active"></x-admin-nav>
@@ -31,11 +13,10 @@
                 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
                 <!-- Begins here --> 
 
-                    <!-- Loop through the job list -->
-                    @forelse ($post_jobs as $job)
-
-                        <div class="container mx-auto p-4">
-                            <div class="border-b border-gray-200 py-4">
+                    <div class="container mx-auto p-4">
+                        <!-- Loop through the job list -->
+                        @forelse ($post_jobs as $job)
+                            <div class="border-b border-gray-200 py-4 hover:bg-gray-100 transition duration-300 ease-in-out">
 
                                 <div class="flex space-x-4">
                                     <div class="w-1/4">
@@ -53,7 +34,7 @@
                                 
                                     <div class="w-3/4">
                                         <!-- Job Title -->
-                                        <h3 class="text-xl font-semibold text-gray-800">
+                                        <h3 class="text-xl font-semibold text-gray-800 hover:text-blue-600">
                                             <a target="_blank" href="https://{{ $job->web_address }}" class="text-blue-500 hover:underline">
                                                 {{ $job->title }}
                                             </a>
@@ -71,18 +52,18 @@
 
                                         <!-- Job Details (Date Posted and Application Link) -->
                                         <div class="mt-3 flex justify-between items-center">
-                                            <span class="text-xs text-gray-400">
-                                                Posted on {{ $job->created_at->format('M d, Y | H:m:s') }}
+                                            <span class="text-xs text-gray-400 font-bold">
+                                                {{ $job->category }}
+                                            |
+                                                Posted on {{ $job->created_at->format('M d, Y') }}
                                             </span>
                                             <a target="_blank" href="https://{{ $job->web_address }}" class="text-blue-500 hover:underline">
                                                 View Details
                                             </a>
 
-                                            <div class="oneline">
+                                            @if ( Auth::user()->isAdmin() )
                                                 <a class="inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150" href="{{ route('job.edit', ['job' => $job->id]) }}">Edit</a>
-                                            </div>
 
-                                            <div class="oneline">
                                                 <form action="{{ route('job.destroy', ['job' => $job->id]) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -91,26 +72,26 @@
                                                         {{ __('Delete') }}
                                                     </x-danger-button>
                                                 </form>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>                      
                                 </div>
                             </div>
-                        </div>
                        
-                    @empty
-                        <p class="font-bold mt-5 ml-5 list-disc list-inside text-red-500">
-                            Nothing to display! Please reload page.
-                        </p>
-                    @endforelse
+                        @empty
+                            <p class="font-bold mt-5 ml-5 list-disc list-inside text-red-500">
+                                Nothing to display! Please reload page.
+                            </p>
+                        @endforelse
 
-                    @if($post_jobs)
-                        <!-- Pagination Links -->
-                        <div class="mt-6">
-                            {{ $post_jobs->links() }}
-                        </div>
-                    @endif
+                        @if($post_jobs)
+                            <!-- Pagination Links -->
+                            <div class="mt-6">
+                                {{ $post_jobs->links() }}
+                            </div>
+                        @endif
 
+                    </div>
                 <!-- Ends here --> 
                 </div>
             </div>

@@ -55,31 +55,31 @@
 
                             <div>
                                 <x-label for="title" value="{{ __('Job Title') }}" />
-                                <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus autocomplete="title" />
+                                <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus autocomplete="title" placeholder="e.g. Senior Marketing Manager" />
                                 <x-input-error for="title" class="mt-2" />
                             </div>
 
                             <div>
                                 <x-label for="company" value="{{ __('Company Name') }}" />
-                                <x-input id="company" class="block mt-1 w-full" type="text" name="company" :value="old('company')" required  />
+                                <x-input id="company" class="block mt-1 w-full" type="text" name="company" :value="old('company')" required placeholder="e.g. GigAndEarn Inc" />
                                 <x-input-error for="company" class="mt-2" />
                             </div>
 
                             <div>
                                 <x-label for="web_address" value="{{ __('Web Address') }}" />
-                                <x-input id="web_address" class="block mt-1 w-full" type="text" name="web_address" :value="old('web_address')" required />
+                                <x-input id="web_address" class="block mt-1 w-full" type="text" name="web_address" :value="old('web_address')" required placeholder="e.g. gigandearn.com/en/careers" />
                                 <x-input-error for="web_address" class="mt-2" />
                             </div>
 
                             <div>
                                 <x-label for="location" value="{{ __('Location') }}" />
-                                <x-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required/>
+                                <x-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required placeholder="e.g. Remote" />
                                 <x-input-error for="location" class="mt-2" />
                             </div>
 
                             <div>
-                                <x-label for="price_range" value="{{ __('Price Range') }}" />
-                                <x-input id="price_range" class="block mt-1 w-full" type="text" name="price_range" :value="old('price_range')" required/>
+                                <x-label for="price_range" value="{{ __('Price Range (e.g. $1000 - $2000)') }}" />
+                                <x-input id="price_range" class="block mt-1 w-full" type="text" name="price_range" :value="old('price_range')" required />
                                 <x-input-error for="price_range" class="mt-2" />
                             </div>
 

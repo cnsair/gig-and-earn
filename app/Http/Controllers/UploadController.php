@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadRequest;
 use App\Models\Upload;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class UploadController extends Controller
@@ -89,6 +87,7 @@ class UploadController extends Controller
             
             $selected_file = $request->file('file');
             if ( !empty($selected_file) ) {
+                Storage::disk('public')->delete($upload->file); //delete old file
                 $upload->file = $request->file('file')->store('uploads', 'public');
             }
 

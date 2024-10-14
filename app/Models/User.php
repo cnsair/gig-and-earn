@@ -33,25 +33,25 @@ class User extends Authenticatable
         'is_member',
     ];
 
-    // public function isAdmin()
-    // {
-    //     if( $this->role === 1 && $this->is_admin === 1) { 
-    //         return true; 
-    //     } 
-    //     else { 
-    //         return false; 
-    //     }
-    // }
+    public function isAdmin()
+    {
+        if( $this->role == 1 && $this->is_admin == 1) { 
+            return true; 
+        } 
+        else { 
+            return false; 
+        }
+    }
 
-    // public function isMember()
-    // {
-    //     if( $this->role === 0 && $this->is_member === 0) { 
-    //         return true; 
-    //     } 
-    //     else { 
-    //         return false; 
-    //     }
-    // }
+    public function isMember()
+    {
+        if( $this->role == 0 && $this->is_member == 0) { 
+            return true; 
+        } 
+        else { 
+            return false; 
+        }
+    }
 
     /**
      * The attributes that should be hidden for serialization.
