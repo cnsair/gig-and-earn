@@ -27,22 +27,28 @@
 </style>
 
 <div>
-    <a class="{{ $active === route('upload.create') ? 'active font-semibold ' : '' }}
+    <a class="{{ $active === route('upload.create') ? 'active font-semibold' : '' }}
         text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
         href="{{ route('upload.create') }}" >
         {{ __('Upload Files') }}
     </a>
 
-    <a class="{{ $active === route('upload.show') ? 'active font-semibold ' : "" }}
+    <a class="{{ $active === route('upload.show') ? 'active font-semibold' : "" }}
         text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
         href="{{ route('upload.show') }}" >
         {{ __('Show Uploads') }}
     </a>
 
-    <a class="{{ $active === route('upload.show') ? 'active font-semibold ' : "" }}
+    <a class="{{ $active === route('job.create') ? 'active font-semibold' : "" }}
         text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
-        href="{{ route('upload.show') }}" >
-        {{ __('Anything') }}
+        href="{{ route('job.create') }}" >
+        {{ __('Post Jobs') }}
+    </a>
+
+    <a class="{{ $active === route('job.show') ? 'active font-semibold' : "" }}
+        text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
+        href="{{ route('job.show') }}" >
+        {{ __('Show Jobs') }}
     </a>
 
 </div>

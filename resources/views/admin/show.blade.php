@@ -2,24 +2,6 @@
     $active = route('upload.show');
 @endphp
 
-<style>
-    .one-line{
-        display: block;
-    }
-    .space{
-        padding: 0px 20px 0px 20px;
-    }
-
-    .oneline{
-        display: inline-flex !important;
-    }
-
-    .padn{
-        padding: 1%;
-    }
-   
-</style>
-
 <x-app-layout>
     <x-slot name="header">
         <x-admin-nav :active="$active"></x-admin-nav>

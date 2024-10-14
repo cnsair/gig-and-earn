@@ -13,6 +13,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -48,18 +50,32 @@
 
             //FORMS
             // Disable buttons when clicked
-            //SignIn
+            //Upload Video
             function uploadF(form) {
                 form.uploadIn.disabled = true;
                 form.uploadIn.value = "Uploading...";
                 return true;
             }
 
-            //Register
+            //Edit video
             function EditUploadF(form) {
                 form.editUpload.disabled = true;
                 form.editUpload.value = "Please wait...";
                 return true;
+
+            //Post Job
+            function postjobF(form) {
+                form.postIn.disabled = true;
+                form.postIn.value = "Posting...";
+                return true;
+            }
+
+            //edit Job
+            function editjobF(form) {
+                form.editJob.disabled = true;
+                form.editJob.value = "Please wait...";
+                return true;
+            }
             }
 
         </script>

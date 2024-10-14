@@ -54,10 +54,10 @@
                                     <source src="{{ $file_url }}" type="video/mp4">
                                 </video>
                             </p>
-                         
+                            
                         @empty
                             <div class="container">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LwQIHg9u30?si=yPuFlxg-N0Q7UTkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6nPAYptJQtU?si=vk6dIBcxAu6OPHNi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         @endforelse
 

@@ -39,9 +39,16 @@
                                     $file = Auth::user()->profile_photo_path;
                                     $photo_path  = asset('storage/' . $file);
                                 @endphp
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ $photo_path }}" alt="{{ Auth::user()->firstname ." ". Auth::user()->lastname }}" />
-                                </button>
+
+                                @if ($file)
+                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ $photo_path }}" alt="{{ Auth::user()->firstname ." ". Auth::user()->lastname }}" />
+                                    </button>
+                                @else
+                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ asset('assets/img/logo/avatar.png') }}">
+                                    </button>
+                                @endif
                             @else
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">

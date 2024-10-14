@@ -34,7 +34,11 @@
                     @endphp
                     <!-- $this->user->profile_photo_url -->
 
-                    <img src="{{ $photo_path }}" alt="{{ $this->user->firstname }}" class="rounded-full h-20 w-20 object-cover">
+                    @if ($file)
+                        <img src="{{ $photo_path }}" alt="{{ $this->user->firstname }}" class="rounded-full h-20 w-20 object-cover">
+                    @else
+                        <img src="{{ asset('assets/img/logo/avatar.png') }}" class="rounded-full h-20 w-20 object-cover">
+                    @endif
                 </div>
 
                 <!-- New Profile Photo Preview -->

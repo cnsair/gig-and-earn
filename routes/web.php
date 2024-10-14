@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostjobController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UploadController;
@@ -47,48 +48,69 @@ Route::group(['middleware' => 'auth'], function() {
         RedirectController::class, 'index'
     ]);
 
-
     //===========================
     //Must be Admin
     //===========================
     Route::group(['middleware' => 'admin'], function() {
         
-        //Show in Show Dashboard
+        //Collect data and render all
         Route::get('/admin/dashboard', [DashboardController::class, 'showInDashboard'])
             ->name('admin.dashboard');
-        
-        //Show in Show Dashboard
-        Route::get('/admin/show', [ShowController::class, 'showInAdmin'])
-            ->name('upload.show');
 
-        // //view upload page
+        // create page
         Route::get('/admin/upload',  [UploadController::class, 'create'])
             ->name('upload.create');
 
-        //view upload page
+        //store action
         Route::post('/admin/upload', [UploadController::class, 'store'])
             ->name('upload.store');
+        
+        //Show page
+        Route::get('/admin/show', [UploadController::class, 'show'])
+            ->name('upload.show');
 
         //Edit page
         Route::get('/admin/{upload}/edit', [UploadController::class,'edit'])
             ->name('upload.edit');
     
-        //Update
+        //Update action
         Route::patch('/admin/{upload}/edit', [UploadController::class, 'update'])
             ->name('upload.update');
     
-        //delete
-        Route::delete('/admin/{upload}/edit', [UploadController::class, 'destroy'])
+        //delete action
+        Route::delete('/admin/{upload}/show', [UploadController::class, 'destroy'])
             ->name('upload.destroy');
 
-
         //Toggle betweeen Show and Hide Upload
-        Route::put('/admin//{upload}show', function (Upload $upload){
-        
+        Route::put('/admin/{upload}/show', function (Upload $upload){
             $upload->toggleStatus();
             return redirect()->back()->with('success','done');
-            
         })->name('upload.toggle');
+
+        //===========================================================================================
+        // //create page
+        Route::get('/admin/post-job', [PostjobController::class, 'create'])
+            ->name('job.create');
+        
+        //Store action
+        Route::post('/admin/post-job', [PostjobController::class, 'store'])
+            ->name('job.store');
+        
+        //Show page
+        Route::get('/admin/show-job', [PostjobController::class, 'show'])
+            ->name('job.show');
+
+        //Edit page
+        Route::get('/admin/{job}/edit-job', [PostjobController::class,'edit'])
+            ->name('job.edit');
+    
+        //Update action
+        Route::patch('/admin/{job}/edit-job', [PostjobController::class, 'update'])
+            ->name('job.update');
+    
+        //delete action
+        Route::delete('/admin/{job}/show-job', [PostjobController::class, 'destroy'])
+            ->name('job.destroy');
 
     });
 

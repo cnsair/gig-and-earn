@@ -13,14 +13,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class UploadController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        // return view('admin.upload');
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -34,24 +26,6 @@ class UploadController extends Controller
     // public function store(Upload $request, array $input): void
     public function store( UploadRequest $request ): RedirectResponse
     {
-        // Validator::make($input, [
-        //     'title' => ['required', 'string', 'max:50'],
-        //     'description' => ['required', 'string', 'max:500'],
-        //     'file' => ['mimes:jpg,jpeg,png,PNG', 'max:5072'],
-        // ])->validate();
-
-        // if (isset($input['photo'])) {
-        //    $request->file('file')->store('uploads', 'public');
-        // }
-
-        // $request->forceFill([
-        //     'title' => $input['title'],
-        //     'description' => $input['description'],
-        //     'file' => $input['file'],
-        // ])->save();
-
-        // session()->flash('status', 'File successfully uploaded.');
-
         $request->user()->fill($request->validated());
 
         // Checks status of file selected: Max file size is 10,240mb
@@ -71,15 +45,23 @@ class UploadController extends Controller
         else{
             return Redirect::route('upload.create')->with('status', 'failed');
         }
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        $prof_vid_section = Upload::where('type', 1)
+                                    ->orderBy('id', 'desc')
+                                    ->limit(5)->get();
+        $course_vid_section = Upload::where('type', 2)
+                                    ->orderBy('id', 'desc')
+                                    ->limit(5)->get();        
+
+        return view('admin.show')
+            ->with('prof_vid_section', $prof_vid_section)
+            ->with('course_vid_section', $course_vid_section);
     }
 
     /**
@@ -126,7 +108,7 @@ class UploadController extends Controller
     {
         $upload = Upload::find($upload);
         $upload->delete();
-        
+
         // Delete the profile picture from storage
         Storage::disk('public')->delete($upload->file);
 
