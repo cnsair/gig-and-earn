@@ -21,7 +21,7 @@
                     <div class="footer-tittle">
                         <h4>Contact Info</h4>
                         <ul>
-                            <li><a href="#">Phone : +8880 44338899</a></li>
+                            <li><a href="#">Phone : GAE700100100</a></li>
                             <li><a href="#">Email : info@gigandearn.com</a></li>
                         </ul>
                     </div>
@@ -33,11 +33,9 @@
                     <div class="footer-tittle">
                         <h4>Important Link</h4>
                         <ul>
-                            <li><a href="#"> View Project</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Testimonial</a></li>
-                            <li><a href="#">Proparties</a></li>
-                            <li><a href="#">Support</a></li>
+                            <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
+                            <li><a href="{{ route('find-job') }}">Find a Gig</a></li>
+                            <li><a href="{{ route('how-it-works') }}">How it works</a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,21 +79,21 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
             <div class="footer-tittle-bottom">
-                <span>5000+</span>
-                <p>Talented Hunter</p>
+                <span>1000+</span>
+                <p>Talented Hunters</p>
             </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                 <div class="footer-tittle-bottom">
-                    <span>451</span>
-                    <p>Talented Hunter</p>
+                    <span>2000+</span>
+                    <p>Top Talents</p>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                 <!-- Footer Bottom Tittle -->
                 <div class="footer-tittle-bottom">
-                    <span>568</span>
-                    <p>Talented Hunter</p>
+                    <span>900+</span>
+                    <p>Courses</p>
                 </div>
             </div>
         </div>

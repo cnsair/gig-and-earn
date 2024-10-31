@@ -100,7 +100,7 @@
                         
                             <div class="flex items-center justify-end mt-4">
                                 <x-button class="ms-4" name="editjobIn">
-                                    {{ __('Post Job') }}
+                                    {{ __('Edit Job') }}
                                 </x-button>
                             </div>
                         </form>

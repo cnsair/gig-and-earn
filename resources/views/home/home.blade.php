@@ -202,7 +202,7 @@
                         <div class="cv-caption text-center">
                             <p class="pera1">FEATURED TOURS Packages</p>
                             <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                            <a href="{{ route('home') }}" class="border-btn2 border-btn4">Upload your cv</a>
+                            <a href="{{ route('login') }}" class="border-btn2 border-btn4">Upload your CV</a>
                         </div>
                     </div>
                 </div>
@@ -217,101 +217,52 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>Recent Job</span>
+                            <span>Recent Jobs</span>
                             <h2>Featured Jobs</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="{{ route('login') }}">
-                                        <img src="{{ asset('assets/img/icon/job-list1.png') }}" alt="">
-                                    </a>
+
+                        @forelse ( $find_jobs as $find_job )
+                            @php
+                                $file = $find_job->file;
+                                $photo_path  = asset('storage/' . $file);
+                            @endphp
+
+                            <!-- single-job-content -->
+                            <div class="single-job-items mb-30">
+                                <div class="job-items">
+                                    <div class="company-img">
+                                        <a href="{{ route('login') }}">
+                                            @if ($file)
+                                                <img class="me-3 company-logo" src="{{ asset($photo_path) }}" alt="partner-img" alt="Logo">
+                                            @else
+                                                <img class="me-3 company-logo" src="{{ asset('assets/img/logo/favicon.png') }}" alt="Logo">
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="job-tittle">
+                                        <a href="{{ route('login') }}"><h4>{{ $find_job->title }}</h4></a>
+                                        <ul>
+                                            <li>{{ $find_job->company }}</li>
+                                            <li><i class="fas fa-map-marker-alt"></i>{{ $find_job->location }}</li>
+                                            <li>{{ $find_job->price_range }}</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="job-tittle">
-                                    <a href="{{ route('login') }}"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Mallorca, Spain</li>
-                                        <li>$1500 - $3000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="{{ route('login') }}">Full Time</a>
-                                <span>30 mins ago</span>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="{{ route('login') }}">
-                                        <img src="{{ asset('assets/img/icon/job-list2.png') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="{{ route('login') }}"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Colorado, USA</li>
-                                        <li>$1500 - $2000</li>
-                                    </ul>
+                                <div class="items-link f-right">
+                                    <a href="{{ route('login') }}">Full-Time/Remote</a>
+                                    <span>{{ $find_job->created_at->diffForHumans() }}</span> 
                                 </div>
                             </div>
-                            <div class="items-link f-right">
-                                <a href="{{ route('login') }}">Full Time</a>
-                                <span>35 mins ago</span>
+                        @empty
+                            <div class="container">
+                                There's nothing to display yet. Please check back later.
                             </div>
-                        </div>
-                         <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="{{ route('login') }}">
-                                        <img src="{{ asset('assets/img/icon/job-list3.png') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="{{ route('login') }}"><h4>Graphic Designer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Lisbon, Portugal</li>
-                                        <li>$2000 - $4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="{{ route('login') }}">Full Time</a>
-                                <span>37 mins ago</span>
-                            </div>
-                        </div>
-                         <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="{{ route('login') }}">
-                                        <img src="{{ asset('assets/img/icon/job-list4.png') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="{{ route('login') }}"><h4>PHP Developer</h4></a>
-                                    <ul>
-                                        <li>Outsourcing IT Company</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Texas, USA</li>
-                                        <li>$3000 - $5000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="{{ route('login') }}">Full Time</a>
-                                <span>40 mins ago</span>
-                            </div>
-                        </div>
+                        @endforelse
+
                     </div>
                 </div>
             </div>
@@ -319,7 +270,7 @@
         <!-- Featured_job_end -->
 
         <!-- Testimonial Start -->
-        <div class="testimonial-area testimonial-padding">
+        <div class="testimonial-area mb-5">
             <div class="container">
                 <!-- Testimonial contents -->
                 <div class="row d-flex justify-content-center">
