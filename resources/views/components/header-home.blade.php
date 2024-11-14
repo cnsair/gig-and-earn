@@ -14,7 +14,7 @@
                         <div class="main-menu">
                             <nav class="d-none d-lg-block">
                                 <ul id="navigation">
-                                    <li><a active href="{{ route('home') }}">Home</a></li>
+                                    <li><a active href="{{ route('home') }}">Homepp</a></li>
                                     <li><a href="{{ route('find-job') }}">Find a Gig</a></li>
                                     <li><a href="{{ route('how-it-works') }}">How it works</a></li>
                                     <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
@@ -30,7 +30,10 @@
                 </div>
                 <!-- Mobile Menu -->
                 <div class="col-12">
-                    <div class="mobile_menu d-block d-lg-none"></div>
+                    <div class="mobile_menu d-block d-lg-none hidden sm:flex-1 sm:flex sm:items-center sm:justify-between sm:hidden">
+                        <a href="{{ route('register') }}" class="btn head-btn1">Register</a>
+                        <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
+                    </div>
                 </div>
             </div>
         </div>

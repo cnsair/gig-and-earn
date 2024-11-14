@@ -4,7 +4,7 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <x-header-nav :active="$active"></x-header-nav>
+        <x-admin-nav :active="$active"></x-admin-nav>
     </x-slot>
 
     <div class="py-12">

@@ -84,7 +84,7 @@
                             </p>
                         @endforelse
 
-                        @if($post_jobs)
+                        @if($post_jobs->hasPages())
                             <!-- Pagination Links -->
                             <div class="mt-6">
                                 {{ $post_jobs->links() }}

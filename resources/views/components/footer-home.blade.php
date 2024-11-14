@@ -79,21 +79,21 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
             <div class="footer-tittle-bottom">
-                <span>1000+</span>
-                <p>Talented Hunters</p>
+                <span>500+</span>
+                <p>Talent Hunters</p>
             </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                 <div class="footer-tittle-bottom">
-                    <span>2000+</span>
+                    <span>1000+</span>
                     <p>Top Talents</p>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                 <!-- Footer Bottom Tittle -->
                 <div class="footer-tittle-bottom">
-                    <span>900+</span>
-                    <p>Courses</p>
+                    <span>10,000+</span>
+                    <p>Jobs & Courses</p>
                 </div>
             </div>
         </div>

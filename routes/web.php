@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\HomeRendererController;
 use App\Http\Controllers\PostjobController;
 use App\Http\Controllers\RedirectController;
@@ -16,17 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
 
-    // create page
+    // Home Landing page
     Route::get('/',  [HomeRendererController::class, 'HomeRenderer'])
         ->name('home');
 
-    // Route::get('/', function () {
-    //     return view('home.home');
-    // })->name('home');
+    // Find Jobs page
+    Route::get('/find-job',  [FindJobController::class, 'HomeRenderer'])
+        ->name('find-job');
+    
 
-    Route::get('/find-job', function () {
-        return view('home.find-job');
-    })->name('find-job');
+    // Route::get('/find-job', function () {
+    //     return view('home.find-job');
+    // })->name('find-job');
 
     Route::get('/how-it-works', function () {
         return view('home.how-it-works');

@@ -53,7 +53,7 @@ class PostjobController extends Controller
      */
     public function show()
     {
-        $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(10);
+        $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(2);
         // $post_jobs = Postjob::paginate(10);
     
         // Pass the paginated users to the view

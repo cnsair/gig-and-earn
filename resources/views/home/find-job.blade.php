@@ -131,9 +131,10 @@
                             </div>
                             <!-- select-Categories End -->
                         </div>
+                        
                         <!-- single three -->
-                        <div class="single-listing">
-                            <!-- select-Categories start -->
+                        <!-- select-Categories start -->
+                        <!-- <div class="single-listing">
                             <div class="select-Categories pb-50">
                                 <div class="small-section-tittle2">
                                     <h4>Posted Within</h4>
@@ -163,17 +164,17 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <!-- select-Categories End -->
-                        </div>
-                        <div class="single-listing">
-                            <!-- Range Slider Start -->
+                        </div> -->
+
+                        <!-- Range Slider Start -->
+                        <!-- <div class="single-listing">
                             <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
                                 <div class="small-section-tittle2">
                                     <h4>Filter Jobs</h4>
                                 </div>
                                 <div class="widgets_inner">
                                     <div class="range_item">
-                                        <!-- <div id="slider-range"></div> -->
+                                        <div id="slider-range"></div>
                                         <input type="text" class="js-range-slider" value="" />
                                         <div class="d-flex align-items-center">
                                             <div class="price_text">
@@ -188,8 +189,8 @@
                                     </div>
                                 </div>
                             </aside>
-                            <!-- Range Slider End -->
-                        </div>
+                        </div> -->
+
                     </div>
                     <!-- Job Category Listing End -->
                 </div>
@@ -203,7 +204,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="count-job mb-35">
-                                        <span>12,675 Jobs found</span>
+                                        <span>10,000 Jobs plus</span>
                                         <!-- Select job items start -->
                                         <div class="select-job-items">
                                             <span>Sort by</span>
@@ -218,172 +219,76 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Count of Job list End -->
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            <img src="{{ asset('assets/img/icon/job-list1.png') }}" alt="">
-                                        </a>
+                           
+                            @forelse ( $find_jobs as $find_job )
+                                @php
+                                    $file = $find_job->file;
+                                    $photo_path  = asset('storage/' . $file);
+                                @endphp
+
+                                <!-- single-job-content -->
+                                <div class="single-job-items mb-30">
+                                    <div class="job-items">
+                                        <div class="company-img">
+                                            <a href="{{ route('login') }}">
+                                                @if ($file)
+                                                    <img class="me-3 company-logo" src="{{ asset($photo_path) }}" alt="partner-img" alt="Logo">
+                                                @else
+                                                    <img class="me-3 company-logo" src="{{ asset('assets/img/logo/favicon.png') }}" alt="Logo">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="job-tittle">
+                                            <a href="{{ route('login') }}"><h4>{{ $find_job->title }}</h4></a>
+                                            <ul>
+                                                <li>{{ $find_job->company }}</li>
+                                                <li><i class="fas fa-map-marker-alt"></i>{{ $find_job->location }}</li>
+                                                <li>{{ $find_job->price_range }}</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>Digital Marketer</h4></a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Mallorca, Spain</li>
-                                            <li>$1500 - $3000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Full Time</a>
-                                    <span>30 mins ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            <img src="{{ asset('assets/img/icon/job-list2.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>Digital Marketer</h4></a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Colorado, USA</li>
-                                            <li>$1500 - $2000</li>
-                                        </ul>
+                                    <div class="items-link f-right">
+                                        <a href="{{ route('login') }}">Full-Time/Remote</a>
+                                        <span>{{ $find_job->created_at->diffForHumans() }}</span> 
                                     </div>
                                 </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Full Time</a>
-                                    <span>35 mins ago</span>
+                            @empty
+                                <div class="container">
+                                    There's nothing to display yet. Please check back later.
                                 </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            <img src="{{ asset('assets/img/icon/job-list3.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>Graphic Designer</h4></a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Lisbon, Portugal</li>
-                                            <li>$2000 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Full Time</a>
-                                    <span>37 mins ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            <img src="{{ asset('assets/img/icon/job-list4.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>PHP Developer</h4></a>
-                                        <ul>
-                                            <li>Outsourcing IT Company</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Texas, USA</li>
-                                            <li>$3000 - $5000</li>
-                                        </ul>
+                            @endforelse
+
+                            @if($find_jobs->hasPages())
+                                <!-- Pagination Area -->
+                                <div class="pagination-area pb-115 text-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <div class="single-wrap d-flex justify-content-center">
+                                                    <nav aria-label="Page navigation example">
+                                                        <ul class="pagination justify-content-start">
+                                                            {{ $find_jobs->links('pagination::bootstrap-5') }}
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Full Time</a>
-                                    <span>40 mins ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{ asset('assets/img/icon/job-list4.png') }}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="{{ route('login') }}">
-                                            <h4>Copy Writer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                            <li>$500 - $2200</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>45 mins ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            <img src="{{ asset('assets/img/icon/job-list2.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>Web Designer</h4></a>
-                                        <ul>
-                                            <li>CMS Company</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>New York, USA</li>
-                                            <li>$2500 - $3000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Full Time</a>
-                                    <span>45 mins ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            <img src="{{ asset('assets/img/icon/job-list2.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>Graphic Designer</h4></a>
-                                        <ul>
-                                            <li>CMS Company</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Toronto, Canada</li>
-                                            <li>$1500 - $3000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Part Time</a>
-                                    <span>50 mins ago</span>
-                                </div>
-                            </div>
+                            @endif
+                           
                         </div>
                     </section>
                     <!-- Featured_job_end -->
                 </div>
+
             </div>
         </div>
     </div>
     <!-- Job List Area End -->
 
     <!--Pagination Start  -->
-    <div class="pagination-area pb-115 text-center">
+    <!-- <div class="pagination-area pb-115 text-center">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -391,16 +296,16 @@
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-start">
                                 <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item"><a class="page-link" href="{{ route('login') }}">02</a></li>
-                                <li class="page-item"><a class="page-link" href="{{ route('login') }}">03</a></li>
-                            <li class="page-item"><a class="page-link" href="{{ route('login') }}"><span class="ti-angle-right"></span></a></li>
+                                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Pagination End  -->
         
 @endsection

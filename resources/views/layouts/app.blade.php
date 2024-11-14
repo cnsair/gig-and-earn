@@ -62,7 +62,8 @@
                 form.editUpload.disabled = true;
                 form.editUpload.value = "Please wait...";
                 return true;
-
+            }
+            
             //Post Job
             function postjobF(form) {
                 form.postIn.disabled = true;
@@ -75,7 +76,6 @@
                 form.editJob.disabled = true;
                 form.editJob.value = "Please wait...";
                 return true;
-            }
             }
 
         </script>
