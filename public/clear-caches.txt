@@ -1,0 +1,14 @@
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
+php artisan config:clear
+php artisan even:clear
+
+php artisan optimize:clear
+php artisan cache:clear
+
+cp xxxxxxxx ../../../../public_html/build/assets
+
+npm install -D tailwindcss postcss autoprefixer
+
+cp: cannot create directory '../../../../public_html': Permission denied

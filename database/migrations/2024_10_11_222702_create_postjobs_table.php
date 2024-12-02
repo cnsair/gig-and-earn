@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('postjobs', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedBigInteger('user_id');
             $table->string('category');
             $table->string('title');
             $table->string('company');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('file');
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

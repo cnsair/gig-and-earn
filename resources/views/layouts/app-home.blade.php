@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Gig&Earn - Find your gig </title>
-        <meta name="description" content="">
+        <title>{{ config('app.name', 'GigAndEarn') }} - Find your gig </title>
+        <meta name="description" content="GigAndEarn, your go-to platform for finding job opportunities and upskilling for a brighter future. Founded in June 2024. We are dedicated to bridging the gap between job seekers and employers, while empowering individuals to enhance their skills through our carefully curated courses.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">

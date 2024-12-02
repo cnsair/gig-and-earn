@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="sticky top-0 z-50 bg-white border-b shadow">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -11,19 +11,84 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @if ( Auth::user()->role == 1 && Auth::user()->is_admin == 1 )
-                        
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
+                    @if ( Auth::user()->isAdmin() )
                         <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
-
-                    @elseif ( Auth::user()->role == 0 && Auth::user()->is_member == 0 )
                         
+                        <div class="relative group">
+                            <x-nav-link href="#" :active="request()->routeIs('upload.create') || request()->routeIs('upload.show') || request()->routeIs('upload.edit')" >
+                                {{ __('Videos') }}
+                            </x-nav-link>
+        
+                            <!-- Dropdown Menu -->
+                            <div 
+                                class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block">
+                                <a href="{{ route('upload.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Upload Video') }}
+                                </a>
+                                <a href="{{ route('upload.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Videos') }}
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="relative group">
+                            <x-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
+                                {{ __('Jobs') }}
+                            </x-nav-link>
+        
+                            <!-- Dropdown Menu -->
+                            <div 
+                                class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block">
+                                <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Post Job') }}
+                                </a>
+                                <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Jobs') }}
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="relative group">
+                            <x-nav-link href="#" :active="request()->routeIs('book.create') || request()->routeIs('book.show') || request()->routeIs('book.edit') ">
+                                {{ __('Books') }}
+                            </x-nav-link>
+
+                            <!-- Dropdown Menu -->
+                            <div 
+                                class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block">
+                                <a href="{{ route('book.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Add Book') }}
+                                </a>
+                                <a href="{{ route('book.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Books') }}
+                                </a>
+                            </div>
+                        </div>
+
+                    @elseif  ( Auth::user()->isMember() )
                         <x-nav-link href="{{ route('member.dashboard') }}" :active="request()->routeIs('member.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                         
+                        <div class="relative group">
+                            <x-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
+                                {{ __('Jobs') }}
+                            </x-nav-link>
+        
+                            <!-- Dropdown Menu -->
+                            <div 
+                                class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block">
+                                <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Post Job') }}
+                                </a>
+                                <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Jobs') }}
+                                </a>
+                            </div>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -73,7 +138,7 @@
                             </x-dropdown-link>
 
                             <!-- Only Admin can use 2FA -->
-                            @if ( Auth::user()->role == 1 && Auth::user()->is_admin == 1 )
+                            @if ( Auth::user()->isAdmin() )
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                         {{ __('API Tokens') }}
@@ -109,21 +174,86 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
+    <!-- Responsive Navigation Menu for Mobile and smaller screen sizes -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            @if ( Auth::user()->role == 1 && Auth::user()->is_admin == 1 )
-                
+            @if ( Auth::user()->isAdmin() )
                 <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
+                        
+                <div class="relative group">
+                    <x-responsive-nav-link href="#" :active="request()->routeIs('upload.create') || request()->routeIs('upload.show') || request()->routeIs('upload.edit')" >
+                        {{ __('Videos') }}
+                    </x-responsive-nav-link>
 
-            @elseif ( Auth::user()->role == 0 && Auth::user()->is_member == 0 )
-                
+                    <!-- Dropdown Menu -->
+                    <div 
+                        class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block sm:hidden z-20">
+                        <a href="{{ route('upload.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Upload Video') }}
+                        </a>
+                        <a href="{{ route('upload.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Show Videos') }}
+                        </a>
+                    </div>
+                </div>
+                        
+                <div class="relative group">
+                    <x-responsive-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
+                        {{ __('Jobs') }}
+                    </x-responsive-nav-link>
+
+                    <!-- Dropdown Menu -->
+                    <div 
+                        class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block sm:hidden z-20">
+                        <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Post Job') }}
+                        </a>
+                        <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Show Jobs') }}
+                        </a>
+                    </div>
+                </div>
+                        
+                <div class="relative group">
+                    <x-responsive-nav-link href="#" :active="request()->routeIs('book.create') || request()->routeIs('book.show') || request()->routeIs('book.edit') ">
+                        {{ __('Books') }}
+                    </x-responsive-nav-link>
+
+                    <!-- Dropdown Menu -->
+                    <div 
+                        class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block sm:hidden z-20">
+                        <a href="{{ route('book.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Add Book') }}
+                        </a>
+                        <a href="{{ route('book.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Show Books') }}
+                        </a>
+                    </div>
+                </div>
+
+            @elseif ( Auth::user()->isMember() )
                 <x-responsive-nav-link href="{{ route('member.dashboard') }}" :active="request()->routeIs('member.dashboard')">
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
-                
+                        
+                <div class="relative group">
+                    <x-responsive-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
+                        {{ __('Jobs') }}
+                    </x-responsive-nav-link>
+
+                    <!-- Dropdown Menu -->
+                    <div 
+                        class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block sm:hidden z-20">
+                        <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Post Job') }}
+                        </a>
+                        <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Show Jobs') }}
+                        </a>
+                    </div>
+                </div>
             @endif
         </div>
 
@@ -153,7 +283,7 @@
                 </x-responsive-nav-link>
 
                 <!-- Only Admin can use 2FA -->
-                @if ( Auth::user()->role == 1 && Auth::user()->is_admin == 1 )
+                @if ( Auth::user()->isAdmin() )
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                             {{ __('API Tokens') }}

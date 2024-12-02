@@ -30,13 +30,13 @@
     <a class="{{ $active === route('upload.create') ? 'active font-semibold' : '' }}
         text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
         href="{{ route('upload.create') }}" >
-        {{ __('Upload Files') }}
+        {{ __('Upload Video') }}
     </a>
 
     <a class="{{ $active === route('upload.show') ? 'active font-semibold' : "" }}
         text-lg text-gray-800 leading-tight pass font-medium marg-rt" 
         href="{{ route('upload.show') }}" >
-        {{ __('Show Uploads') }}
+        {{ __('Show Videos') }}
     </a>
 
     <a class="{{ $active === route('job.create') ? 'active font-semibold' : "" }}

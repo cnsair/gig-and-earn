@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\HomeRendererController;
@@ -24,21 +25,17 @@ Route::middleware('guest')->group(function () {
     // Find Jobs page
     Route::get('/find-job',  [FindJobController::class, 'HomeRenderer'])
         ->name('find-job');
-    
 
-    // Route::get('/find-job', function () {
-    //     return view('home.find-job');
-    // })->name('find-job');
-
+    // How It Works
     Route::get('/how-it-works', function () {
         return view('home.how-it-works');
     })->name('how-it-works');
 
+    //Contact Us
     Route::get('/contact-us', function () {
         return view('home.contact-us');
     })->name('contact-us');
 
-    
 });
 
 
@@ -54,14 +51,47 @@ Route::group(['middleware' => 'auth'], function() {
         RedirectController::class, 'index'
     ]);
 
-    //===========================
-    //Must be Admin
-    //===========================
+
+    //=========================================================================
+    // Common pages
+    //=========================================================================
+    // Create page
+    Route::get('/common/post-job', [PostjobController::class, 'create'])
+        ->name('job.create');
+    
+    //Store action
+    Route::post('/common/post-job', [PostjobController::class, 'store'])
+        ->name('job.store');
+    
+    //Show page
+    Route::get('/common/show-job', [PostjobController::class, 'show'])
+        ->name('job.show');
+
+    //Edit page
+    Route::get('/common/{job}/edit-job', [PostjobController::class,'edit'])
+        ->name('job.edit');
+
+    //Update action
+    Route::patch('/common/{job}/edit-job', [PostjobController::class, 'update'])
+        ->name('job.update');
+
+    //delete action
+    Route::delete('/common/{job}/show-job', [PostjobController::class, 'destroy'])
+        ->name('job.destroy');
+
+
+    //===============================================================================
+    // Admin
+    //===============================================================================
+
     Route::group(['middleware' => 'admin'], function() {
         
         //Collect data and render all
         Route::get('/admin/dashboard', [DashboardController::class, 'showInDashboard'])
             ->name('admin.dashboard');
+        
+        //===========================================================================
+        // Video uploads
 
         // create page
         Route::get('/admin/upload',  [UploadController::class, 'create'])
@@ -93,37 +123,39 @@ Route::group(['middleware' => 'auth'], function() {
             return redirect()->back()->with('success','done');
         })->name('upload.toggle');
 
+
         //===========================================================================================
-        // //create page
-        Route::get('/admin/post-job', [PostjobController::class, 'create'])
-            ->name('job.create');
-        
-        //Store action
-        Route::post('/admin/post-job', [PostjobController::class, 'store'])
-            ->name('job.store');
-        
-        //Show page
-        Route::get('/admin/show-job', [PostjobController::class, 'show'])
-            ->name('job.show');
+
+        // Create book page
+        Route::get('/admin/add-book', [BookController::class, 'create'])
+        ->name('book.create');
+
+        // Store book page
+        Route::post('/admin/add-book', [BookController::class, 'store'])
+        ->name('book.store');
+
+        // Show book page
+        Route::get('/admin/show-book', [BookController::class, 'show'])
+        ->name('book.show');
 
         //Edit page
-        Route::get('/admin/{job}/edit-job', [PostjobController::class,'edit'])
-            ->name('job.edit');
+        Route::get('/admin/{book}/edit-book', [BookController::class,'edit'])
+            ->name('book.edit');
 
         //Update action
-        Route::patch('/admin/{job}/edit-job', [PostjobController::class, 'update'])
-            ->name('job.update');
+        Route::patch('/admin/{book}/edit-book', [BookController::class, 'update'])
+            ->name('book.update');
     
         //delete action
-        Route::delete('/admin/{job}/show-job', [PostjobController::class, 'destroy'])
-            ->name('job.destroy');
+        Route::delete('/admin/{book}/show-book', [BookController::class, 'destroy'])
+            ->name('book.destroy');
 
     });
 
 
-    //===========================
+    //===================================================================================
     //Must be Member
-    //===========================
+    //==================================================================================
     Route::group(['middleware' => 'member'], function() {
 
         //view dashboard
@@ -140,6 +172,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/member/testimonial', function () {
             return view('member.testimonial'); })
             ->name('member.testimonial');
+        
+        //Show page
+        // Route::get('/member/show-job', [PostjobController::class, 'show'])
+        //     ->name('member.job.show');
 
     });
 

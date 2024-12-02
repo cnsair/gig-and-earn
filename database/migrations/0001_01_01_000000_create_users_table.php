@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->enum('role',[0,1])->default(0);
             $table->boolean('is_admin')->default(false);
-            $table->boolean('is_member')->default(false);
+            $table->boolean('is_member')->default(true);
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -28,10 +28,16 @@ class User extends Authenticatable
         'lastname',
         'email',
         'password',
-        'role',
-        'is_admin',
-        'is_member',
+        // 'role',
+        // 'is_admin',
+        // 'is_member',
     ];
+
+
+    public function postjob()
+    {
+        return $this->hasMany(Postjob::class);
+    }
 
     public function isAdmin()
     {
@@ -45,7 +51,7 @@ class User extends Authenticatable
 
     public function isMember()
     {
-        if( $this->role == 0 && $this->is_member == 0) { 
+        if( $this->role == 0 && $this->is_member == 1) { 
             return true; 
         } 
         else { 

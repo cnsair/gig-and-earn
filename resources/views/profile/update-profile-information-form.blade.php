@@ -71,7 +71,7 @@
 
         <!-- Firstname -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="lastname" value="{{ __('Firstname') }}" />
+            <x-label for="lastname" value="{{ __('Lastname') }}" />
             <x-input id="lastname" type="text" class="mt-1 block w-full" wire:model="state.lastname" required autocomplete="lastname" />
             <x-input-error for="lastname" class="mt-2" />
         </div>

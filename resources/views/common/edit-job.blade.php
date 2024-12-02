@@ -1,12 +1,4 @@
-@php
-    $active = route('job.create');
-@endphp
-
 <x-app-layout>
-    <x-slot name="header">
-        <x-admin-nav :active="$active"></x-admin-nav>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -37,7 +29,7 @@
                             @endif
 
                             <div>
-                                <x-label for="category" value="{{ __('Job Category') }}" />
+                                <x-label for="category" value="{{ __('Category') }}" />
                                 <select class="block mt-1 w-full" required name="category">
                                     <option {{ (old('category', $job->category) == 'digital-marketing') ? 'selected' : '' }} value="digital-marketing">Digital Marketing</option>
                                     <option {{ (old('category', $job->category) == 'sales') ? 'selected' : '' }} value="sales">Sales</option>
@@ -100,7 +92,7 @@
                         
                             <div class="flex items-center justify-end mt-4">
                                 <x-button class="ms-4" name="editjobIn">
-                                    {{ __('Edit Job') }}
+                                    {{ __('Update Job') }}
                                 </x-button>
                             </div>
                         </form>

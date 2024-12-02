@@ -4,18 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostjobRequest;
 use App\Models\Postjob;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Log;
 
 class PostjobController extends Controller
 {
+    use AuthorizesRequests;
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('admin.post-job');
+        $this->authorize('create', Postjob::class);
+        
+        return view('common.post-job');
     }
 
     /**
@@ -30,6 +37,7 @@ class PostjobController extends Controller
 
             $upload = new Postjob();
 
+            $upload->user_id = Auth::user()->id;
             $upload->category = $request->input('category');
             $upload->title = $request->input('title');
             $upload->company = $request->input('company');
@@ -53,11 +61,12 @@ class PostjobController extends Controller
      */
     public function show()
     {
-        $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(2);
+        $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(10);
         // $post_jobs = Postjob::paginate(10);
     
+        //if ( Auth::user()->isMember() )
         // Pass the paginated users to the view
-        return view('admin.show-job', compact('post_jobs'));
+        return view('common.show-job', compact('post_jobs'));
 
         // return view('admin.show')->with('prof_vid_section', $post_job);
     }
@@ -67,7 +76,9 @@ class PostjobController extends Controller
      */
     public function edit(Postjob $job)
     {
-        return view('admin.edit-job', ['job' => $job ]);
+        $this->authorize('update', $job);
+
+        return view('common.edit-job', ['job' => $job ]);
     }
 
     /**
@@ -75,11 +86,16 @@ class PostjobController extends Controller
      */
     public function update( PostjobRequest $request, $job )
     {
+        // \Illuminate\Support\Facades\Log::info('User: ' . Auth::user()->id . ', Job owner: ' . $job);
+        // tail -f storage/logs/laravel.log
+
+        $job = Postjob::findOrFail($job);
+        $this->authorize('update', $job);
+
         $request->user()->fill($request->validated());
 
         if ( $request ) {
-
-            $job = Postjob::find($job);
+            // $job = Postjob::find($job);
 
             $job->category = $request->input('category');
             $job->title = $request->input('title');
@@ -109,7 +125,8 @@ class PostjobController extends Controller
      */
     public function destroy( $job )
     {
-        $job = Postjob::find($job);
+        $job = Postjob::findOrFail($job);
+        $this->authorize('delete', $job);
         $job->delete();
 
         // Delete the profile picture from storage

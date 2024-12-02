@@ -23,12 +23,12 @@ class PostjobRequest extends FormRequest
     {
         return [
             'category' => ['required', 'string', 'max:100'],
-            'title' => ['required', 'string', 'max:100'],
+            'title' => ['required', 'string', 'max:200'],
             'company' => ['required', 'string', 'max:100'],
-            'web_address' => ['required', 'string', 'max:100'],
+            'web_address' => ['required', 'string', 'max:500'],
             'location' => ['required', 'string', 'max:100'],
             'price_range' => ['required', 'string', 'max:100'],
-            'description' => ['string', 'max:1500'],
+            'description' => ['string', 'max:3000'],
             'file' => ['mimes:jpeg,jpg,png', 'max:5120'],
         ];
     }

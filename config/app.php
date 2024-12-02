@@ -123,4 +123,14 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Register AuthServiceProvider
+    |--------------------------------------------------------------------------
+    |
+    | Since Jetstream hid it's inbuilt authentication system, then it is necessary 
+      to create a custom one in order to manage model specific autorizations
+    |
+    */
+
 ];

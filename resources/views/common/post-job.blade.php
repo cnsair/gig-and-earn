@@ -1,12 +1,4 @@
-@php
-    $active = route('job.create');
-@endphp
-
 <x-app-layout>
-    <x-slot name="header">
-        <x-admin-nav :active="$active"></x-admin-nav>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -35,7 +27,7 @@
                             @endif
 
                             <div>
-                                <x-label for="category" value="{{ __('Job Category') }}" />
+                                <x-label for="category" value="{{ __('Category') }}" />
                                 <select class="block mt-1 w-full" required name="category">
                                     <option selected value="digital-marketing">Digital Marketing</option>
                                     <option value="sales">Sales</option>
@@ -54,7 +46,7 @@
                             </div>
 
                             <div>
-                                <x-label for="title" value="{{ __('Job Title') }}" />
+                                <x-label for="title" value="{{ __('Title') }}" />
                                 <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus autocomplete="title" placeholder="e.g. Senior Marketing Manager" />
                                 <x-input-error for="title" class="mt-2" />
                             </div>
@@ -84,7 +76,7 @@
                             </div>
 
                             <div>
-                                <x-label for="description" value="{{ __('Job Description') }}" />
+                                <x-label for="description" value="{{ __('Description') }}" />
                                 <textarea id="description" class="block mt-1 w-full" type="text" name="description" >{{ old('description') }}</textarea>
                                 <x-input-error for="description" class="mt-2" />
                             </div>

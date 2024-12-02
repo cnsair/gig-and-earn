@@ -1,17 +1,19 @@
-@php
-    $active = route('job.show');
-@endphp
-
 <x-app-layout>
-    <x-slot name="header">
-        <x-admin-nav :active="$active"></x-admin-nav>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
                 <!-- Begins here --> 
+
+
+
+                
+
+
+
+
+
+
 
                     <div class="container mx-auto p-4">
                         <!-- Loop through the job list -->
@@ -19,20 +21,17 @@
                             <div class="border-b border-gray-200 py-4 hover:bg-gray-100 transition duration-300 ease-in-out">
 
                                 <div class="flex space-x-4">
-                                    <div class="w-1/4">
+         
+                                    <!-- Company Logo -->
+                                    <div class="w-full md:w-1/6">
                                         @php
                                             $file = $job->file;
-                                            $photo_path  = asset('storage/' . $file);
+                                            $photo_path = $file ? asset('storage/' . $file) : asset('assets/img/logo/favicon.png');
                                         @endphp
-
-                                        @if ($file)
-                                            <img class="me-3 company-logo" src="{{ asset($photo_path) }}" alt="partner-img" alt="Logo">
-                                        @else
-                                            <img class="me-3 company-logo" src="{{ asset('assets/img/logo/favicon.png') }}" alt="Logo">
-                                        @endif
+                                        <img class="mx-auto md:me-3 company-logo" src="{{ $photo_path }}" alt="{{ $job->company ?? 'Company' }} Logo">
                                     </div>
                                 
-                                    <div class="w-3/4">
+                                    <div class="w-5/6 flex-column">
                                         <!-- Job Title -->
                                         <h3 class="text-xl font-semibold text-gray-800 hover:text-blue-600">
                                             <a target="_blank" href="https://{{ $job->web_address }}" class="text-blue-500 hover:underline">
@@ -54,11 +53,11 @@
                                         <div class="mt-3 flex justify-between items-center">
                                             <span class="text-xs text-gray-400 font-bold">
                                                 {{ $job->category }}
-                                            |
+                                                |
                                                 Posted on {{ $job->created_at->format('M d, Y') }}
                                             </span>
-                                            <a target="_blank" href="https://{{ $job->web_address }}" class="text-blue-500 hover:underline">
-                                                View Details
+                                            <a target="_blank" href="https://{{ $job->web_address }}" class="inline-flex items-center px-4 py-2 border-transparent bg-blue-500 border rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-600">
+                                                Details
                                             </a>
 
                                             @if ( Auth::user()->isAdmin() )
