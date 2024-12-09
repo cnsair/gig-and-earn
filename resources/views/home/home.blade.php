@@ -2,391 +2,650 @@
 
 @section('content')
     
-    <!-- slider Area Start-->
-    <div class="slider-area">
-            <!-- Mobile Menu -->
-            <div class="slider-active">
-                <div class="single-slider slider-height d-flex align-items-center" data-background="{{ asset('assets/img/hero/h1_hero.jpg') }}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-9 col-md-10">
-                                <div class="hero__caption">
-                                    <h1>Find the most exciting startup jobs</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Search Box -->
-                        <div class="row">
-                            <div class="col-xl-8">
-                                <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form">
-                                        <input type="text" name="job" placeholder="Job Tittle or keyword">
-                                    </div>
-                                    <div class="select-form">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option selected  value="#">Location</option>
-                                                <option value="remote">Remote</option>
-                                                <option value="portugal">Portugal</option>
-                                                <option value="germnay">Germany</option>
-                                                <option value="australia">Australia</option>
-                                                <option value="united-state">United State</option>
-                                                <option value="united-kingdom">United Kingdom</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="search-form">
-                                        <a href="{{ route('login') }}">Find job</a>
-                                    </div>	
-                                </form>	
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- slider Area End-->
-         
-         
-        <!-- How  Apply Process Start-->
-        <div class="apply-process-area apply-bg pt-150 pb-150" data-background="{{ asset('assets/img/gallery/how-applybg.png') }}">
-            <div class="container">
-                <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle white-text text-center">
-                            <span>Apply process</span>
-                            <h2> How it works</h2>
-                        </div>
-                    </div>
-                </div>
-                <!-- Apply Process Caption -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-process text-center mb-30">
-                            <div class="process-ion">
-                                <span class="flaticon-curriculum-vitae"></span>
-                            </div>
-                            <div class="process-cap">
-                               <h5>1. Register</h5>
-                               <p>Let us know a bit about you. Things like your skills and qualifications.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-process text-center mb-30">
-                            <div class="process-ion">
-                                <span class="flaticon-search"></span>
-                            </div>
-                            <div class="process-cap">
-                               <h5>2. Pay a token</h5>
-                               <p>Make a one-time 20 USD payment. This payment covers for everything including a skill-up course if we think you need one.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-process text-center mb-30">
-                            <div class="process-ion">
-                                <span class="flaticon-tour"></span>
-                            </div>
-                            <div class="process-cap">
-                               <h5>3. Get your Job</h5>
-                               <p>And that's all! Get your dream job completely online.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </div>
-        <!-- How  Apply Process End-->
+    <div class="hero-wrap js-fullheight" style="bg-image: url({{ asset('assets/images/bg_2.jpg') }});"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+				data-scrollax-parent="true">
+				<div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+					<p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have
+						<span class="number" data-number="3000">0</span> great job offers you deserve!</p>
+					<h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream
+						<br><span>Job is
+							Waiting</span></h1>
 
-        <!-- Our Services Start -->
-        <div class="our-services section-pad-t30">
-            <div class="container">
-                <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle text-center">
-                            <span>Available categories</span>
-                            <h2>Browse Top Categories </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row d-flex justify-contnet-center">
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-tour"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="{{ route('find-job') }}">Art & Creative</a></h5>
-                                <span>(204)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-cms"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="{{ route('find-job') }}">Web Design & Development</a></h5>
-                                <span>(197)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-report"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="{{ route('find-job') }}">Sales & Marketing</a></h5>
-                                <span>(256)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-app"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="{{ route('find-job') }}">Mobile Application</a></h5>
-                                <span>(105)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-high-tech"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="{{ route('find-job') }}">Information Technology</a></h5>
-                                <span>(41)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-content"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="{{ route('find-job') }}">Content Writer</a></h5>
-                                <span>(205)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- More Btn -->
-                <!-- Section Button -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="browse-btn2 text-center mt-50">
-                            <a href="{{ route('find-job') }}" class="border-btn2">Browse All Sectors</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Our Services End -->
+					<div class="ftco-search">
+						<div class="row">
+							<div class="col-md-12 nav-link-wrap">
+								<div class="nav nav-pills text-center" id="v-pills-tab" role="tablist"
+									aria-orientation="vertical">
+									<a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill"
+										href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Find
+										your Gig</a>
 
-        <!-- Online CV Area Start -->
-         <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="{{ asset('assets/img/gallery/cv_bg.jpg') }}">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="cv-caption text-center">
-                            <p class="pera1">FEATURED TOURS Packages</p>
-                            <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                            <a href="{{ route('login') }}" class="border-btn2 border-btn4">Upload your CV</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Online CV Area End-->
+									<a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"
+										role="tab" aria-controls="v-pills-2" aria-selected="false">Find a Candidate</a>
 
-        <!-- Featured_job_start -->
-        <section class="featured-job-area feature-padding">
-            <div class="container">
-                <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle text-center">
-                            <span>Recent Jobs</span>
-                            <h2>Featured Jobs</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
+								</div>
+							</div>
+							<div class="col-md-12 tab-wrap">
 
-                        @forelse ( $find_jobs as $find_job )
-                            @php
-                                $file = $find_job->file;
-                                $photo_path  = asset('storage/' . $file);
-                            @endphp
+								<div class="tab-content p-4" id="v-pills-tabContent">
 
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="{{ route('login') }}">
-                                            @if ($file)
-                                                <img class="me-3 company-logo" src="{{ asset($photo_path) }}" alt="partner-img" alt="Logo">
-                                            @else
-                                                <img class="me-3 company-logo" src="{{ asset('assets/img/logo/favicon.png') }}" alt="Logo">
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="{{ route('login') }}"><h4>{{ $find_job->title }}</h4></a>
-                                        <ul>
-                                            <li>{{ $find_job->company }}</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>{{ $find_job->location }}</li>
-                                            <li>{{ $find_job->price_range }}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link f-right">
-                                    <a href="{{ route('login') }}">Full-Time/Remote</a>
-                                    <span>{{ $find_job->created_at->diffForHumans() }}</span> 
-                                </div>
-                            </div>
-                        @empty
-                            <div class="container">
-                                There's nothing to display yet. Please check back later.
-                            </div>
-                        @endforelse
+									<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
+										aria-labelledby="v-pills-nextgen-tab">
+										<form action="#" class="search-job">
+											<div class="row">
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<div class="icon"><span class="icon-briefcase"></span></div>
+															<input type="text" class="form-control"
+																placeholder="eg. Garphic. Web Developer">
+														</div>
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<div class="select-wrap">
+																<div class="icon"><span
+																		class="ion-ios-arrow-down"></span></div>
+																<select name="" id="" class="form-control">
+																	<option value="">Category</option>
+																	<option value="">Full Time</option>
+																	<option value="">Part Time</option>
+																	<option value="">Freelance</option>
+																	<option value="">Internship</option>
+																	<option value="">Temporary</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<div class="icon"><span class="icon-map-marker"></span>
+															</div>
+															<input type="text" class="form-control"
+																placeholder="Location">
+														</div>
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<input type="submit" value="Search"
+																class="form-control btn btn-primary">
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
 
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Featured_job_end -->
+									<div class="tab-pane fade" id="v-pills-2" role="tabpanel"
+										aria-labelledby="v-pills-performance-tab">
+										<form action="#" class="search-job">
+											<div class="row">
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<div class="icon"><span class="icon-user"></span></div>
+															<input type="text" class="form-control"
+																placeholder="eg. Adam Scott">
+														</div>
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<div class="select-wrap">
+																<div class="icon"><span
+																		class="ion-ios-arrow-down"></span></div>
+																<select name="" id="" class="form-control">
+																	<option value="">Category</option>
+																	<option value="">Full Time</option>
+																	<option value="">Part Time</option>
+																	<option value="">Freelance</option>
+																	<option value="">Internship</option>
+																	<option value="">Temporary</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<div class="icon"><span class="icon-map-marker"></span>
+															</div>
+															<input type="text" class="form-control"
+																placeholder="Location">
+														</div>
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<div class="form-field">
+															<input type="submit" value="Search"
+																class="form-control btn btn-primary">
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        <!-- Testimonial Start -->
-        <div class="testimonial-area mb-5">
-            <div class="container">
-                <!-- Testimonial contents -->
-                <div class="row d-flex justify-content-center">
-                    <div class="col-xl-8 col-lg-8 col-md-10">
-                        <div class="h1-testimonial-active dot-style">
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img class="rounded-corner" src="assets/img/testmonial/michael.webp" alt="">
-                                            <span>Michael T.</span>
-                                            <p>Web Development</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“This platform was a game-changer for me. After applying for several web development positions, I got multiple interviews and was hired by a growing tech company. I’m grateful for the career boost!”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img class="rounded-corner" src="assets/img/testmonial/amanda.webp" alt="">
-                                            <span>Amanda J. Lawson</span>
-                                            <p>Creative Arts</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I was looking for a platform that could connect me with companies seeking creative minds, and I found exactly that! Within two weeks of applying through [Platform Name], I landed my dream job as a Creative Arts Director. I couldn’t be happier!”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img class="rounded-corner" src="assets/img/testmonial/james.webp" alt="">
-                                            <span>James B.</span>
-                                            <p>Digital Marketing</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“Thanks to gigandearn.com, I secured a role in digital marketing with a top firm! The process was smooth, and I found openings tailored to my skills. It’s been an incredible journey, and I highly recommend it to other job seekers!”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img class="rounded-corner" src="assets/img/testmonial/samantha.png" alt="">
-                                            <span>Samantha L. John</span>
-                                            <p>Graphic Design</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I had been searching for the right opportunity as a graphic designer for months. [Platform Name] not only made it easy to apply but connected me with a great company. Now, I’m working in a creative, inspiring environment.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
+	<section class="ftco-section services-section bg-light">
+		<div class="container">
+			<div class="row d-flex">
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="icon"><span class="flaticon-resume"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">Search Millions of Jobs</h3>
+							<p>A small river named Duden flows by their place and supplies.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="icon"><span class="flaticon-collaboration"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">Easy To Manage Jobs</h3>
+							<p>A small river named Duden flows by their place and supplies.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="icon"><span class="flaticon-promotions"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">Top Careers</h3>
+							<p>A small river named Duden flows by their place and supplies.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="icon"><span class="flaticon-employee"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">Search Expert Candidates</h3>
+							<p>A small river named Duden flows by their place and supplies.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-         <!-- Support Company Start-->
-         <div class="support-company-area support-padding fix mb-50">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="right-caption">
-                            <!-- Section Tittle -->
-                            <div class="section-tittle section-tittle2">
-                                <span>Are you an Hirer?</span>
-                                <h2>Post your opening here</h2>
-                            </div>
-                            <div class="support-caption">
-                                <p class="pera-top">
-                                    Unlock Top Talent by Posting Your Openings Here! <br/>
-                                    Reach thousands of potential employees when you post your company openings. Our process is fast and easy to give you a seamless posting experience.
-                                </p>
+	<section class="ftco-section ftco-counter">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">Categories work wating for you</span>
+					<h2 class="mb-4"><span>Current</span> Job Posts</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 ftco-animate">
+					<ul class="category">
+						<li><a href="#">Web Development <span class="number" data-number="1000">0</span></a></li>
+						<li><a href="#">Graphic Designer <span class="number" data-number="1000">0</span></a></li>
+						<li><a href="#">Multimedia <span class="number" data-number="2000">0</span></a></li>
+						<li><a href="#">Advertising <span class="number" data-number="900">0</span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftco-animate">
+					<ul class="category">
+						<li><a href="#">Education &amp; Training <span class="number" data-number="3500">0</span></a>
+						</li>
+						<li><a href="#">English <span class="number" data-number="1560">0</span></a></li>
+						<li><a href="#">Social Media <span class="number" data-number="1000">0</span></a></li>
+						<li><a href="#">Writing <span class="number" data-number="2500">0</span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftco-animate">
+					<ul class="category">
+						<li><a href="#">PHP Programming <span class="number" data-number="5500">0</span></a></li>
+						<li><a href="#">Project Management <span class="number" data-number="2000">0</span></a></li>
+						<li><a href="#">Finance Management <span class="number" data-number="800">0</span></a></li>
+						<li><a href="#">Office &amp; Admin <span class="number" data-number="7000">0</span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftco-animate">
+					<ul class="category">
+						<li><a href="#">Web Designer <span><span class="number" data-number="8000">0</span></span></a>
+						</li>
+						<li><a href="#">Customer Service <span class="number" data-number="4000">0</span></a></li>
+						<li><a href="#">Marketing &amp; Sales <span class="number" data-number="3300">0</span></a></li>
+						<li><a href="#">Software Development <span class="number" data-number="1356">0</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                                <p>Are you looking for highly skilled professionals to join your team? Our platform connects you with a diverse pool of talents across digital industries. With our streamlined process, your job listings will reach qualified candidates who are ready to contribute to your company's success.<br/><br/>
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">Recently Added Jobs</span>
+					<h2 class="mb-4"><span>Recent</span> Jobs</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 ftco-animate">
 
-                                Post your openings today and discover the right talent for your business!.</p>
-                                <a href="{{ route('register') }}" class="btn post-btn">Post a job</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="support-location-img">
-                            <img src="{{ asset('assets/img/service/support-img.jpg') }}" alt="">
-                            <div class="support-img-cap text-center">
-                                <p>Only</p>
-                                <span>Top Talents!</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Support Company End-->
-      
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h3">Frontend Development</h2>
+								<div class="badge-wrap">
+									<span class="bg-primary text-white badge py-2 px-3">Partime</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">Facebook, Inc.</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div><!-- end -->
+
+				<div class="col-md-12 ftco-animate">
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Full Stack Developer</h2>
+								<div class="badge-wrap">
+									<span class="bg-warning text-white badge py-2 px-3">Full Time</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">Google, Inc.</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#" class="btn btn-danger rounded-circle btn-favorite d-flex align-items-center">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
+								<div class="badge-wrap">
+									<span class="bg-info text-white badge py-2 px-3">Freelance</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">New York Times</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Frontend Development</h2>
+								<div class="badge-wrap">
+									<span class="bg-secondary text-white badge py-2 px-3">Internship</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">Facebook, Inc.</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
+								<div class="badge-wrap">
+									<span class="bg-danger text-white badge py-2 px-3">Temporary</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">New York Times</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h3">Frontend Development</h2>
+								<div class="badge-wrap">
+									<span class="bg-primary text-white badge py-2 px-3">Partime</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">Facebook, Inc.</a></div>
+								<div><span class="icon-map-marker"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div><!-- end -->
+
+				<div class="col-md-12 ftco-animate">
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Full Stack Developer</h2>
+								<div class="badge-wrap">
+									<span class="bg-warning text-white badge py-2 px-3">Full Time</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">Google, Inc.</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
+								<div class="badge-wrap">
+									<span class="bg-info text-white badge py-2 px-3">Freelance</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">New York Times</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Frontend Development</h2>
+								<div class="badge-wrap">
+									<span class="bg-secondary text-white badge py-2 px-3">Internship</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">Facebook, Inc.</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div> <!-- end -->
+				<div class="col-md-12 ftco-animate">
+					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						<div class="mb-4 mb-md-0 mr-5">
+							<div class="job-post-item-header d-flex align-items-center">
+								<h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
+								<div class="badge-wrap">
+									<span class="bg-danger text-white badge py-2 px-3">Temporary</span>
+								</div>
+							</div>
+							<div class="job-post-item-body d-block d-md-flex">
+								<div class="mr-3"><span class="icon-layers"></span> <a href="#">New York Times</a></div>
+								<div><span class="icon-my_location"></span> <span>Western City, UK</span></div>
+							</div>
+						</div>
+
+						<div class="ml-auto d-flex">
+							<a href="job-single.html" class="btn btn-primary py-2 mr-1">Apply Job</a>
+							<a href="#"
+								class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+								<span class="icon-heart"></span>
+							</a>
+						</div>
+					</div>
+				</div> <!-- end -->
+			</div>
+			<div class="row mt-5">
+				<div class="col text-center">
+					<div class="block-27">
+						<ul>
+							<li><a href="#">&lt;</a></li>
+							<li class="active"><span>1</span></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">&gt;</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({{ asset('assets/images/bg_1.jpg') }})"
+		data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<div class="row">
+						<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="1350000">0</strong>
+									<span>Jobs</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="40000">0</strong>
+									<span>Members</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="30000">0</strong>
+									<span>Resume</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="10500">0</strong>
+									<span>Company</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section testimony-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Testimonial</span>
+					<h2 class="mb-4"><span>Happy</span> Clients</h2>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel ftco-owl">
+						<div class="item">
+							<div class="testimony-wrap py-4 pb-5">
+								<div class="user-img mb-4" style="background-image: url({{ asset('assets/images/person_1.jpg') }})">
+									<span class="quote d-flex align-items-center justify-content-center">
+										<i class="icon-quote-left"></i>
+									</span>
+								</div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and
+										Consonantia, there live the blind texts.</p>
+									<p class="name">Roger Scott</p>
+									<span class="position">Marketing Manager</span>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4 pb-5">
+								<div class="user-img mb-4" style="background-image: url({{ asset('assets/images/person_2.jpg') }})">
+									<span class="quote d-flex align-items-center justify-content-center">
+										<i class="icon-quote-left"></i>
+									</span>
+								</div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and
+										Consonantia, there live the blind texts.</p>
+									<p class="name">Roger Scott</p>
+									<span class="position">Interface Designer</span>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4 pb-5">
+								<div class="user-img mb-4" style="background-image: url({{ asset('assets/images/person_3.jpg') }})">
+									<span class="quote d-flex align-items-center justify-content-center">
+										<i class="icon-quote-left"></i>
+									</span>
+								</div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and
+										Consonantia, there live the blind texts.</p>
+									<p class="name">Roger Scott</p>
+									<span class="position">UI Designer</span>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4 pb-5">
+								<div class="user-img mb-4" style="background-image: url({{ asset('assets/images/person_1.jpg') }})">
+									<span class="quote d-flex align-items-center justify-content-center">
+										<i class="icon-quote-left"></i>
+									</span>
+								</div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and
+										Consonantia, there live the blind texts.</p>
+									<p class="name">Roger Scott</p>
+									<span class="position">Web Developer</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 @endsection

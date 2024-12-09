@@ -15,6 +15,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         \App\Models\Postjob::class => \App\Policies\JobPolicy::class,
     ];
+    
     /**
      * Register services.
      */

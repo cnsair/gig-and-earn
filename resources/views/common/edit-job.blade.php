@@ -36,7 +36,7 @@
                                     <option {{ (old('category', $job->category) == 'content-marketing') ? 'selected' : '' }} value="content-marketing">Content Marketing</option>
                                     <option {{ (old('category', $job->category) == 'graphic-design') ? 'selected' : '' }} value="graphic-design">Graphics Design</option>
                                     <option {{ (old('category', $job->category) == 'software-engineering') ? 'selected' : '' }} value="software-engineering">Software Engineering</option>
-                                    <option {{ (old('category', $job->category) == 'web-desig') ? 'selected' : '' }} value="web-design">Web Design</option>
+                                    <option {{ (old('category', $job->category) == 'web-design') ? 'selected' : '' }} value="web-design">Web Design</option>
                                     <option {{ (old('category', $job->category) == 'mobile-development') ? 'selected' : '' }} value="mobile-development">Mobile Development</option>
                                     <option {{ (old('category', $job->category) == 'web-development') ? 'selected' : '' }} value="web-development">Web Development</option>
                                     <option {{ (old('category', $job->category) == 'information-technology') ? 'selected' : '' }} value="information-technology">Information Technology</option>

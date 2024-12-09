@@ -1,41 +1,25 @@
-<div class="header-area header-transparrent">
-    <div class="headder-top header-sticky">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-2">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
-                    </div>  
-                </div>
-                <div class="col-lg-9 col-md-9">
-                    <div class="menu-wrapper">
-                        <!-- Main-menu -->
-                        <div class="main-menu">
-                            <nav class="d-none d-lg-block">
-                                <ul id="navigation">
-                                    <li><a active href="{{ route('home') }}">Home</a></li>
-                                    <li><a href="{{ route('find-job') }}">Find a Gig</a></li>
-                                    <li><a href="{{ route('how-it-works') }}">How it works</a></li>
-                                    <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
-                                </ul>
-                            </nav>
-                        </div>          
-                        <!-- Header-btn -->
-                        <div class="header-btn d-none f-right d-lg-block">
-                            <a href="{{ route('register') }}" class="btn head-btn1">Register</a>
-                            <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile Menu -->
-                <div class="col-12">
-                    <div class="mobile_menu d-block d-lg-none hidden sm:flex-1 sm:flex sm:items-center sm:justify-between sm:hidden">
-                        <a href="{{ route('register') }}" class="btn head-btn1">Register</a>
-                        <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
-                    </div>
-                </div>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="{{ route('home') }}">
+            <img src="{{ asset('assets/images/logo/logo.png') }}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{{ route('contact-us') }}" class="nav-link">Contact Us</a></li>
+                <li class="nav-item cta mr-md-2"><a href="{{ route('find-job') }}" class="nav-link">Find your
+                        Gig</a></li>
+                <li class="nav-item cta cta-colored"><a href="{{ route('login') }}" class="nav-link">Sign-in</a>
+                </li>
+
+            </ul>
         </div>
     </div>
-</div>
+</nav>
+<!-- END nav -->

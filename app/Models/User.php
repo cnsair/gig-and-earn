@@ -33,7 +33,6 @@ class User extends Authenticatable
         // 'is_member',
     ];
 
-
     public function postjob()
     {
         return $this->hasMany(Postjob::class);

@@ -78,7 +78,7 @@ class PostjobController extends Controller
     {
         $this->authorize('update', $job);
 
-        return view('common.edit-job', ['job' => $job ]);
+        return view('common.edit-job', ['job' => $job]);
     }
 
     /**
