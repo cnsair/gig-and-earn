@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/icomoon.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 </head>
 
 <body>

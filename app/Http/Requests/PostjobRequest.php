@@ -22,8 +22,8 @@ class PostjobRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category' => ['required', 'string', 'max:100'],
-            'title' => ['required', 'string', 'max:200'],
+            'category' => ['required', 'string', 'max:50'],
+            'title' => ['required', 'string', 'max:100'],
             'company' => ['required', 'string', 'max:100'],
             'web_address' => ['required', 'string', 'max:500'],
             'location' => ['required', 'string', 'max:100'],

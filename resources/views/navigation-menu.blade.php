@@ -16,6 +16,10 @@
                         <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+
+                        <x-nav-link href="{{ route('guest-message.show') }}" :active="request()->routeIs('guest-message.show') || request()->routeIs('guest-message.edit')" >
+                            {{ __('Feedbacks') }}
+                        </x-nav-link>
                         
                         <div class="relative group">
                             <x-nav-link href="#" :active="request()->routeIs('upload.create') || request()->routeIs('upload.show') || request()->routeIs('upload.edit')" >

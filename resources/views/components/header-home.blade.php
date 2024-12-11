@@ -10,14 +10,21 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{ route('contact-us') }}" class="nav-link">Contact Us</a></li>
-                <li class="nav-item cta mr-md-2"><a href="{{ route('find-job') }}" class="nav-link">Find your
-                        Gig</a></li>
-                <li class="nav-item cta cta-colored"><a href="{{ route('login') }}" class="nav-link">Sign-in</a>
+                <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
                 </li>
-
+                <li class="nav-item {{ request()->routeIs('about-us') ? 'active' : '' }}">
+                    <a href="{{ route('about-us') }}" class="nav-link">About</a>
+                </li>
+                <li class="nav-item {{ request()->routeIs('contact-us') ? 'active' : '' }}">
+                    <a href="{{ route('contact-us') }}" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item {{ request()->routeIs('find-job') ? 'active' : '' }}">
+                    <a href="{{ route('find-job') }}" class="nav-link">Find your Gig</a>
+                </li>
+                <li class="nav-item cta cta-colored {{ request()->routeIs('login') ? 'active' : '' }}">
+                    <a href="{{ route('login') }}" class="nav-link">Sign-in</a>
+                </li>
             </ul>
         </div>
     </div>

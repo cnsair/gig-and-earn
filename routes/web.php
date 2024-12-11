@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FindJobController;
+use App\Http\Controllers\GuestMessageController;
 use App\Http\Controllers\HomeRendererController;
 use App\Http\Controllers\PostjobController;
 use App\Http\Controllers\RedirectController;
@@ -26,6 +27,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/find-job',  [FindJobController::class, 'HomeRenderer'])
         ->name('find-job');
 
+    // About Us
+    Route::get('/about-us', function () {
+        return view('home.about-us');
+    })->name('about-us');
+    
     // How It Works
     Route::get('/how-it-works', function () {
         return view('home.how-it-works');
@@ -36,6 +42,9 @@ Route::middleware('guest')->group(function () {
         return view('home.contact-us');
     })->name('contact-us');
 
+    // store Contact Us/guest message
+    Route::post('/contact-us', [GuestMessageController::class, 'store'])
+        ->name('guest-message.store');
 });
 
 
@@ -125,6 +134,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 
         //===========================================================================================
+        // Books
 
         // Create book page
         Route::get('/admin/add-book', [BookController::class, 'create'])
@@ -149,6 +159,21 @@ Route::group(['middleware' => 'auth'], function() {
         //delete action
         Route::delete('/admin/{book}/show-book', [BookController::class, 'destroy'])
             ->name('book.destroy');
+
+        //================================================================================================
+        // Guest's Feedbacks
+
+        // store Contact Us/guest message
+        Route::get('/admin/guest-message', [GuestMessageController::class, 'show'])
+            ->name('guest-message.show');
+
+        //Edit page
+        Route::get('/admin/{feedback}/guest-message', [GuestMessageController::class,'edit'])
+            ->name('guest-message.edit');
+
+        //delete action
+        Route::delete('/admin/{feedback}/guest-message', [GuestMessageController::class, 'destroy'])
+            ->name('guest-message.destroy');
 
     });
 

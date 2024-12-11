@@ -5,16 +5,6 @@
                 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
                 <!-- Begins here --> 
 
-
-
-                
-
-
-
-
-
-
-
                     <div class="container mx-auto p-4">
                         <!-- Loop through the job list -->
                         @forelse ($post_jobs as $job)
