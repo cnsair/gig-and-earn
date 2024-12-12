@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'GigAndEarn') }}</title>
         
-		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo/favicon2.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

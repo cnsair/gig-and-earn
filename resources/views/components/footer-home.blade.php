@@ -13,7 +13,7 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Links</h2>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('contact-us') }}">About Us</a></li>
+                        <li><a href="{{ route('about-us') }}">About Us</a></li>
                         <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>
-                    &copy; <script>document.write(new Date().getFullYear());</script> GigAndEarn. All rights reserved.
+                    &copy; GigAndEarn <script>document.write(new Date().getFullYear());</script>. All rights reserved.
                 </p>
             </div>
         </div>

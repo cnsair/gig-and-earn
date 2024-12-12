@@ -23,7 +23,7 @@
                         
                         <div class="relative group">
                             <x-nav-link href="#" :active="request()->routeIs('upload.create') || request()->routeIs('upload.show') || request()->routeIs('upload.edit')" >
-                                {{ __('Videos') }}
+                                {{ __('Videos') }} &#x25BE;
                             </x-nav-link>
         
                             <!-- Dropdown Menu -->
@@ -40,7 +40,7 @@
                         
                         <div class="relative group">
                             <x-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
-                                {{ __('Jobs') }}
+                                {{ __('Jobs') }} &#x25BE;
                             </x-nav-link>
         
                             <!-- Dropdown Menu -->
@@ -57,7 +57,7 @@
                         
                         <div class="relative group">
                             <x-nav-link href="#" :active="request()->routeIs('book.create') || request()->routeIs('book.show') || request()->routeIs('book.edit') ">
-                                {{ __('Books') }}
+                                {{ __('Books') }} &#x25BE;
                             </x-nav-link>
 
                             <!-- Dropdown Menu -->
@@ -79,7 +79,7 @@
                         
                         <div class="relative group">
                             <x-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
-                                {{ __('Jobs') }}
+                                {{ __('Jobs') }} &#x25BE;
                             </x-nav-link>
         
                             <!-- Dropdown Menu -->
@@ -185,10 +185,14 @@
                 <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
+
+                <x-responsive-nav-link href="{{ route('guest-message.show') }}" :active="request()->routeIs('guest-message.show') || request()->routeIs('guest-message.edit')" >
+                    {{ __('Feedbacks') }}
+                </x-responsive-nav-link>
                         
                 <div class="relative group">
                     <x-responsive-nav-link href="#" :active="request()->routeIs('upload.create') || request()->routeIs('upload.show') || request()->routeIs('upload.edit')" >
-                        {{ __('Videos') }}
+                        {{ __('Videos') }} &#x25BE;
                     </x-responsive-nav-link>
 
                     <!-- Dropdown Menu -->
@@ -205,7 +209,7 @@
                         
                 <div class="relative group">
                     <x-responsive-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
-                        {{ __('Jobs') }}
+                        {{ __('Jobs') }} &#x25BE;
                     </x-responsive-nav-link>
 
                     <!-- Dropdown Menu -->
@@ -222,7 +226,7 @@
                         
                 <div class="relative group">
                     <x-responsive-nav-link href="#" :active="request()->routeIs('book.create') || request()->routeIs('book.show') || request()->routeIs('book.edit') ">
-                        {{ __('Books') }}
+                        {{ __('Books') }} &#x25BE;
                     </x-responsive-nav-link>
 
                     <!-- Dropdown Menu -->
@@ -244,7 +248,7 @@
                         
                 <div class="relative group">
                     <x-responsive-nav-link href="#" :active="request()->routeIs('job.create') || request()->routeIs('job.show') || request()->routeIs('job.edit')" >
-                        {{ __('Jobs') }}
+                        {{ __('Jobs') }} &#x25BE;
                     </x-responsive-nav-link>
 
                     <!-- Dropdown Menu -->

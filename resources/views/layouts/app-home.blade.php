@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="GigAndEarn, your go-to platform for finding job opportunities and upskilling for a brighter future. Founded in June 2024. We are dedicated to bridging the gap between job seekers and employers, while empowering individuals to enhance their skills through our carefully curated courses.">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo/favicon.ico') }}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo/favicon2.png') }}">
 
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
 
