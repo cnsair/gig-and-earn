@@ -15,9 +15,7 @@ class Quote extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
         'author',
         'description',
-        'date',
     ];
 }

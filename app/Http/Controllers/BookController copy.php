@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\QuoteRequest;
-use App\Models\Quote;
+use App\Http\Requests\BookRequest;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
-class QuoteController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,24 +29,28 @@ class QuoteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(QuoteRequest $request)
+    public function store(BookRequest $request)
     {
         $request->user()->fill($request->validated());
 
         // Checks status of file selected: Max file size is 10,240mb
         if ( $request ) { 
 
-            $book = new Quote();
+            $book = new Book();
 
+            $book->title = $request->input('title');
             $book->author = $request->input('author');
+            $book->isbn = $request->input('isbn');
             $book->description = $request->input('description');
+            $book->book_file = $request->file('book_file')->store('books/file', 'public');
+            $book->cover_art = $request->file('cover_art')->store('books/cover-art', 'public');
 
             $book->save();
 
-            return Redirect::route('quote.create')->with('status', 'success');
+            return Redirect::route('book.create')->with('status', 'success');
         }
         else{
-            return Redirect::route('quote.create')->with('status', 'failed');
+            return Redirect::route('book.create')->with('status', 'failed');
         }
     }
 

@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>
-                    &copy; GigAndEarn <script>document.write(new Date().getFullYear());</script>. All rights reserved.
+                    &copy; <script>document.write(new Date().getFullYear());</script> GigAndEarn. All rights reserved.
                 </p>
             </div>
         </div>
