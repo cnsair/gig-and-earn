@@ -71,6 +71,23 @@
                                 </a>
                             </div>
                         </div>
+                        
+                        <div class="relative group">
+                            <x-nav-link href="#" :active="request()->routeIs('quote.create') || request()->routeIs('quote.show')" >
+                                {{ __('Quotes') }} &#x25BE;
+                            </x-nav-link>
+        
+                            <!-- Dropdown Menu -->
+                            <div 
+                                class="absolute left-0 mt-2 hidden w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block group-focus-within:block">
+                                <a href="{{ route('quote.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Create Quote') }}
+                                </a>
+                                <a href="{{ route('quote.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Quotes') }}
+                                </a>
+                            </div>
+                        </div>
 
                     @elseif  ( Auth::user()->isMember() )
                         <x-nav-link href="{{ route('member.dashboard') }}" :active="request()->routeIs('member.dashboard')">

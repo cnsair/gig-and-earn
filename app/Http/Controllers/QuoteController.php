@@ -22,7 +22,7 @@ class QuoteController extends Controller
      */
     public function create()
     {
-        return view('admin.add-book');
+        return view('admin.add-quote');
     }
 
     /**
@@ -52,73 +52,53 @@ class QuoteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(Quote $book)
     {
-        $books = Book::query()->orderBy('id', 'desc')->paginate(10);
-        return view('admin.show-book', compact('books'));
+        $quotes = Quote::query()->orderBy('id', 'desc')->paginate(10);
+        return view('admin.show-quote', compact('quotes'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
-    {
-        return view('admin.edit-book', ['book' => $book ]);
-    }
+    // public function edit(Quote $quote)
+    // {
+    //     return view('admin.edit-quote', ['quote' => $quote ]);
+    // }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(BookRequest $request, $book)
-    {
-        $request->user()->fill($request->validated());
+    // public function update(QuoteRequest $request, $quote)
+    // {
+    //     $request->user()->fill($request->validated());
 
-        // Checks status of file selected: Max file size is 10,240mb
-        if ( $request ) { 
+    //     // Checks status of file selected: Max file size is 10,240mb
+    //     if ( $request ) { 
 
-            $book = Book::find($book);
+    //         $quote = Quote::find($quote);
 
-            $book->title = $request->input('title');
-            $book->author = $request->input('author');
-            $book->isbn = $request->input('isbn');
-            $book->description = $request->input('description');
-            // $book->book_file = $request->file('book_file')->store('books/file', 'public');
-            // $book->cover_art = $request->file('cover_art')->store('books/cover-art', 'public');
+    //         $quote->author = $request->input('author');
+    //         $quote->description = $request->input('description');
             
-            $book_file = $request->file('book_file');
-            if ( !empty($book_file) ) {
-                Storage::disk('public')->delete($book->book_file); //delete old file
-                $book->book_file = $request->file('book_file')->store('books/file', 'public'); //upload new file
-            }
-            
-            $cover_art = $request->file('cover_art');
-            if ( !empty($cover_art) ) {
-                Storage::disk('public')->delete($book->cover_art); //delete old file
-                $book->cover_art = $request->file('cover_art')->store('books/cover-art', 'public'); //upload new file
-            }
 
-            $book->update();
+    //         $quote->update();
 
-            return Redirect()->back()->with('status', 'success');
-        }
-        else{
-            return Redirect()->back()->with('status', 'failed');
-        }
-    }
+    //         return Redirect()->back()->with('status', 'success');
+    //     }
+    //     else{
+    //         return Redirect()->back()->with('status', 'failed');
+    //     }
+    // }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($book)
+    public function destroy($quote)
     {
-        $book = Book::find($book);
-        $book->delete();
+        $quote = Quote::find($quote);
+        $quote->delete();
 
-        // Delete the files from storage
-        Storage::disk('public')->delete($book->book_file);
-        Storage::disk('public')->delete($book->cover_art);
-
-        // return Redirect::route('book.show')->with('status', 'success');
         return Redirect()->back()->with('status', 'success');
     }
 }

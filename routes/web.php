@@ -6,6 +6,7 @@ use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\GuestMessageController;
 use App\Http\Controllers\HomeRendererController;
 use App\Http\Controllers\PostjobController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UploadController;
@@ -136,23 +137,23 @@ Route::group(['middleware' => 'auth'], function() {
         //===========================================================================================
         // Books
 
-        // Create book page
+        // Create book
         Route::get('/admin/add-book', [BookController::class, 'create'])
         ->name('book.create');
 
-        // Store book page
+        // Store book
         Route::post('/admin/add-book', [BookController::class, 'store'])
         ->name('book.store');
 
-        // Show book page
+        // Show book
         Route::get('/admin/show-book', [BookController::class, 'show'])
         ->name('book.show');
 
-        //Edit page
+        // Edit page
         Route::get('/admin/{book}/edit-book', [BookController::class,'edit'])
             ->name('book.edit');
 
-        //Update action
+        // Update action
         Route::patch('/admin/{book}/edit-book', [BookController::class, 'update'])
             ->name('book.update');
     
@@ -174,6 +175,26 @@ Route::group(['middleware' => 'auth'], function() {
         //delete action
         Route::delete('/admin/{feedback}/guest-message', [GuestMessageController::class, 'destroy'])
             ->name('guest-message.destroy');
+
+
+        //===========================================================================================
+        // Quotes
+
+        // Create quote
+        Route::get('/admin/add-quote', [QuoteController::class, 'create'])
+        ->name('quote.create');
+
+        // Store quote
+        Route::post('/admin/add-quote', [QuoteController::class, 'store'])
+        ->name('quote.store');
+
+        // Show quote
+        Route::get('/admin/show-quote', [QuoteController::class, 'show'])
+        ->name('quote.show');
+    
+        //delete action
+        Route::delete('/admin/{quote}/show-quote', [QuoteController::class, 'destroy'])
+            ->name('quote.destroy');
 
     });
 

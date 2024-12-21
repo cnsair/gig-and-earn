@@ -23,7 +23,7 @@ class QuoteRequest extends FormRequest
     {
         return [
             'author' => ['string', 'max:100', 'nullable'],
-            'description' => ['required', 'string', 'max:1000'],
+            'description' => ['required', 'string', 'max:500'],
         ];
     }
 }
