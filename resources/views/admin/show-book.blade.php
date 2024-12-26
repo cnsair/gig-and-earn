@@ -48,7 +48,7 @@
                                         <!-- Job Details (Date Posted and Application Link) -->
                                         <div class="mt-3 flex flex-col md:flex-row md:justify-between items-start md:items-center space-y-3 md:space-y-0">
                                             <span class="text-xs text-gray-400 font-bold">
-                                                Posted on {{ $book->created_at->format('M d, Y') }}
+                                                {{ $book->created_at->diffForHumans() }}
                                             </span>
                                             <div class="flex space-x-2">
                                                 <a download href="{{ asset('storage/' . $book_file) }}" class="inline-flex items-center px-4 py-2 bg-blue-500 text-white text-xs font-semibold rounded-md hover:bg-blue-600">

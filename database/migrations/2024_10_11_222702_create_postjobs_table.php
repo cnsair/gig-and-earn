@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id');
-            $table->string('category');
+            $table->integer('category_id');
             $table->string('title');
             $table->string('company');
             $table->string('web_address');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('file');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
             $table->timestamps();
         });
     }

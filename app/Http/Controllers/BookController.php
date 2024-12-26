@@ -13,10 +13,10 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    // public function index()
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -34,17 +34,14 @@ class BookController extends Controller
         $request->user()->fill($request->validated());
 
         // Checks status of file selected: Max file size is 10,240mb
-        if ( $request ) { 
-
+        if ( $request ) {
             $book = new Book();
-
             $book->title = $request->input('title');
             $book->author = $request->input('author');
             $book->isbn = $request->input('isbn');
             $book->description = $request->input('description');
             $book->book_file = $request->file('book_file')->store('books/file', 'public');
             $book->cover_art = $request->file('cover_art')->store('books/cover-art', 'public');
-
             $book->save();
 
             return Redirect::route('book.create')->with('status', 'success');

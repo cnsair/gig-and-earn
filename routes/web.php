@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\GuestMessageController;
@@ -192,9 +193,33 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/admin/show-quote', [QuoteController::class, 'show'])
         ->name('quote.show');
     
-        //delete action
+        // Delete action
         Route::delete('/admin/{quote}/show-quote', [QuoteController::class, 'destroy'])
             ->name('quote.destroy');
+
+
+        //===========================================================================================
+        // Job Category
+
+        // Create quote
+        Route::get('/admin/category', [CategoryController::class, 'index'])
+        ->name('category.index');
+
+        // Create quote
+        Route::get('/admin/add-category', [CategoryController::class, 'create'])
+        ->name('category.create');
+
+        // Store quote
+        Route::post('/admin/add-category', [CategoryController::class, 'store'])
+        ->name('category.store');
+
+        // Show quote
+        // Route::get('/admin/show-category', [CategoryController::class, 'show'])
+        // ->name('category.show');
+    
+        // Delete action
+        Route::delete('/admin/{category}/show-category', [CategoryController::class, 'destroy'])
+            ->name('category.destroy');
 
     });
 

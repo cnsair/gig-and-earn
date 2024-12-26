@@ -11,30 +11,27 @@
                 <!-- Begins here --> 
 
                     <div class="container mx-auto p-4">
-                        <!-- Loop through the job list -->
+                        
                         @forelse ($quotes as $quote)
                             <div class="border-b border-gray-200 py-4 hover:bg-gray-100 transition duration-300 ease-in-out">
 
                                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
 
-                                    <!-- Job Details -->
+                                    <!-- Quote Details -->
                                     <div class="w-full md:w-6/6">
-                                        <!-- Job Title -->
                                         <h3 class="text-xl font-semibold text-gray-800 hover:text-blue-600">
                                             <a target="_blank" href="" class="text-blue-500 hover:underline">
                                                 {{ $quote->author ?? "Anonymous" }}
                                             </a>
                                         </h3>
 
-                                        <!-- Job Description -->
                                         <p class="text-sm text-gray-500 mt-2">
                                             {{ Str::limit($quote->description, 501) }}
                                         </p>
 
-                                        <!-- Job Details (Date Posted and Application Link) -->
                                         <div class="mt-3 flex flex-col md:flex-row md:justify-between items-start md:items-center space-y-3 md:space-y-0">
                                             <span class="text-xs text-gray-400 font-bold">
-                                                {{ $quote->created_at->format('M d, Y') }}
+                                                {{ $quote->created_at->diffForHumans() }}
                                             </span>
                                             <div class="flex space-x-2">
                                                 @if (Auth::user()->isAdmin())
