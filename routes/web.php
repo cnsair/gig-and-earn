@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('job.store');
     
     //Show page
-    Route::get('/common/show-job', [PostjobController::class, 'show'])
+    Route::get('/common/{job}/show-job', [PostjobController::class, 'show'])
         ->name('job.show');
 
     //Edit page

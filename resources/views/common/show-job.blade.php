@@ -12,7 +12,7 @@
 
                     <div class="container mx-auto p-4">
                         <!-- Loop through the job list -->
-                        @forelse ($jobs as $job)
+                        @if ($job)
                             <div class="container mx-auto p-6">
                                 <!-- Job Header -->
                                 <div class="border-b border-gray-300 pb-4 mb-6">
@@ -33,7 +33,7 @@
                                             $file = $job->file;
                                             $photo_path = $file ? asset('storage/' . $file) : asset('assets/images/logo/favicon.png');
                                         @endphp
-                                        <img class="w-32 h-32 md:w-48 md:h-48 object-contain" src="{{ $photo_path }}" alt="{{ $job->company ?? 'Company' }} Logo">
+                                        <img class="w-25 h-25 md:w-48 md:h-48 object-contain" src="{{ $photo_path }}" alt="{{ $job->company ?? 'Company' }} Logo">
                                     </div>
 
                                     <!-- Job Details -->
@@ -46,23 +46,28 @@
                                             <span class="font-bold">Type:</span> {{ $job->type }}
                                         </p>
                                         <p class="text-gray-600 mb-2">
-                                            <span class="font-bold">Salary:</span> {{ $job->salary }}
+                                            <span class="font-bold">Salary:</span> {{ $job->price_range }}
                                         </p>
-                                        <p class="text-gray-600">
-                                            <span class="font-bold">Website:</span> 
-                                            <a href="https://{{ $job->web_address ?? '#' }}" target="_blank" class="text-blue-500 hover:underline">
-                                                {{ $job->web_address }}
-                                            </a>
-                                        </p>
+                                        @if ($job->web_address)
+                                            <p class="text-gray-600">
+                                                <span class="font-bold">Website:</span> 
+                                                <a href="https://{{ $job->web_address }}" target="_blank" class="text-blue-500 hover:underline">
+                                                    {{ $job->web_address }}
+                                                </a>
+                                            </p>
+                                        @endif
                                     </div>
                                 </div>
 
                                 <!-- Job Description -->
                                 <div class="mt-6">
                                     <h2 class="text-xl font-semibold text-gray-800 mb-4">Job Description</h2>
-                                    <p class="text-gray-600 leading-relaxed">
-                                        {{ $job->description }}
-                                    </p>
+                                   
+                                    <ul class="list-disc list-inside text-gray-600">
+                                        @foreach (explode("\n", $job->description) as $description)
+                                            <li>{{ $description }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
 
                                 <!-- Job Benefits -->
@@ -93,11 +98,11 @@
                                 </div>
                             </div>
 
-                        @empty
+                        @else
                             <p class="font-bold mt-5 ml-5 list-disc list-inside text-red-500">
                                 Nothing to display! Please reload page.
                             </p>
-                        @endforelse
+                        @endif
 
                     </div>
                 <!-- Ends here --> 

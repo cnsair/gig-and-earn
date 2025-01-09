@@ -77,11 +77,11 @@ class PostjobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Postjob $job)
+    public function show($job)
     {
-        $jobs = Postjob::find($job);
+        $job = Postjob::findOrFail($job);
 
-        return view('common.show-job', ['jobs' => $jobs]);
+        return view('common.show-job', ['job' => $job]);
     }
 
     /**
@@ -110,7 +110,6 @@ class PostjobController extends Controller
         $request->user()->fill($request->validated());
 
         if ( $request ) {
-            // $job = Postjob::find($job);
 
             $job->category_id = $request->input('category_id');
             $job->title = $request->input('title');
@@ -123,9 +122,15 @@ class PostjobController extends Controller
             $job->description = $request->input('description');
             
             $selected_file = $request->file('file');
-            if ( !empty($selected_file) ) {
-                Storage::disk('public')->delete($job->file); //delete old file
-                $job->file = $request->file('file')->store('uploads', 'public'); //upload new file
+
+            if (!empty($selected_file)) {
+                // Check if a file exists before deleting
+                if (!empty($job->file) && Storage::disk('public')->exists($job->file)) {
+                    Storage::disk('public')->delete($job->file); // Delete old file
+                }
+            
+                // Upload the new file
+                $job->file = $request->file('file')->store('uploads', 'public');
             }
 
             $job->update();
@@ -146,8 +151,10 @@ class PostjobController extends Controller
         $this->authorize('delete', $job);
         $job->delete();
 
-        // Delete the profile picture from storage
-        Storage::disk('public')->delete($job->file);
+        // Check if a file exists before deleting
+        if (!empty($job->file) && Storage::disk('public')->exists($job->file)) {
+            Storage::disk('public')->delete($job->file); // Delete old file
+        }
 
         return Redirect::route('job.show')->with('status', 'success');
     }
