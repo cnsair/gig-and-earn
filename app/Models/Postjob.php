@@ -15,12 +15,14 @@ class Postjob extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'category',
+        'category_id',
         'title',
         'company',
         'web_address',
         'location',
         'price_range',
+        'requirement',
+        'benefit',
         'description',
         'file',
     ];

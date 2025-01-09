@@ -66,6 +66,11 @@ Route::group(['middleware' => 'auth'], function() {
     //=========================================================================
     // Common pages
     //=========================================================================
+    
+    //Show page
+    Route::get('/common/index-job', [PostjobController::class, 'index'])
+    ->name('job.index');
+
     // Create page
     Route::get('/common/post-job', [PostjobController::class, 'create'])
         ->name('job.create');

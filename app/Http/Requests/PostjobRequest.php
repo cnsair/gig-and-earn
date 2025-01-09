@@ -22,14 +22,16 @@ class PostjobRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category' => ['required', 'string', 'max:50'],
+            'category_id' => ['required', 'integer', 'min:1'],
             'title' => ['required', 'string', 'max:100'],
             'company' => ['required', 'string', 'max:100'],
-            'web_address' => ['required', 'string', 'max:500'],
+            'web_address' => ['nullable', 'string', 'max:500'],
             'location' => ['required', 'string', 'max:100'],
             'price_range' => ['required', 'string', 'max:100'],
-            'description' => ['string', 'max:3000'],
-            'file' => ['mimes:jpeg,jpg,png', 'max:5120'],
+            'requirement' => ['required', 'string', 'max:3000'],
+            'benefit' => ['nullable', 'string', 'max:3000'],
+            'description' => ['required', 'string', 'max:3000'],
+            'file' => ['nullable', 'mimes:jpeg,jpg,png', 'max:5120'],
         ];
     }
 }

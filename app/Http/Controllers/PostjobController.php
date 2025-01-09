@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostjobRequest;
+use App\Models\Category;
 use App\Models\Postjob;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
@@ -14,6 +15,17 @@ use Log;
 class PostjobController extends Controller
 {
     use AuthorizesRequests;
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(10);
+        return view('common.index-job', compact('post_jobs'));
+
+        // return view('admin.show')->with('prof_vid_section', $post_job);
+    }
     
     /**
      * Show the form for creating a new resource.
@@ -22,7 +34,11 @@ class PostjobController extends Controller
     {
         $this->authorize('create', Postjob::class);
         
-        return view('common.post-job');
+        // return view('common.post-job');
+        $post_jobs = Postjob::with('category')->get(); // Eager load categories
+        $categories = Category::all(); // Fetch all categories for dropdown
+    
+        return view('common.post-job', compact('post_jobs', 'categories'));
     }
 
     /**
@@ -33,21 +49,23 @@ class PostjobController extends Controller
         $request->user()->fill($request->validated());
 
         // Checks status of file selected: Max file size is 10,240mb
-        if ( $request ) { 
-
-            $upload = new Postjob();
-
-            $upload->user_id = Auth::user()->id;
-            $upload->category = $request->input('category');
-            $upload->title = $request->input('title');
-            $upload->company = $request->input('company');
-            $upload->web_address = $request->input('web_address');
-            $upload->location = $request->input('location');
-            $upload->price_range = $request->input('price_range');
-            $upload->description = $request->input('description');
-            $upload->file = $request->file('file')->store('uploads', 'public');
-
-            $upload->save();
+        if ( $request ) {
+            $job = new Postjob();
+            $job->user_id = Auth::user()->id;
+            $job->category_id = $request->input('category_id');
+            $job->title = $request->input('title');
+            $job->company = $request->input('company');
+            $job->web_address = $request->input('web_address');
+            $job->location = $request->input('location');
+            $job->price_range = $request->input('price_range');
+            $job->requirement = $request->input('requirement');
+            $job->benefit = $request->input('benefit');
+            $job->description = $request->input('description');
+            // Handle file upload
+            if ($request->hasFile('file')) {
+                $job->file = $request->file('file')->store('uploads', 'public');
+            } 
+            $job->save();
 
             return Redirect::route('job.create')->with('status', 'success');
         }
@@ -59,26 +77,23 @@ class PostjobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Postjob $job)
     {
-        $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(10);
-        // $post_jobs = Postjob::paginate(10);
-    
-        //if ( Auth::user()->isMember() )
-        // Pass the paginated users to the view
-        return view('common.show-job', compact('post_jobs'));
+        $jobs = Postjob::find($job);
 
-        // return view('admin.show')->with('prof_vid_section', $post_job);
+        return view('common.show-job', ['jobs' => $jobs]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Postjob $job)
+    public function edit($job)
     {
+        $job = Postjob::findOrFail($job);
         $this->authorize('update', $job);
-
-        return view('common.edit-job', ['job' => $job]);
+        // dd($jobs);
+        $categories = Category::all(); // Fetch all categories for dropdown
+        return view('common.edit-job', compact('job', 'categories'));
     }
 
     /**
@@ -97,12 +112,14 @@ class PostjobController extends Controller
         if ( $request ) {
             // $job = Postjob::find($job);
 
-            $job->category = $request->input('category');
+            $job->category_id = $request->input('category_id');
             $job->title = $request->input('title');
             $job->company = $request->input('company');
             $job->web_address = $request->input('web_address');
             $job->location = $request->input('location');
             $job->price_range = $request->input('price_range');
+            $job->requirement = $request->input('requirement');
+            $job->benefit = $request->input('benefit');
             $job->description = $request->input('description');
             
             $selected_file = $request->file('file');

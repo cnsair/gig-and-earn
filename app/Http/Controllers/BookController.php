@@ -84,8 +84,6 @@ class BookController extends Controller
             $book->author = $request->input('author');
             $book->isbn = $request->input('isbn');
             $book->description = $request->input('description');
-            // $book->book_file = $request->file('book_file')->store('books/file', 'public');
-            // $book->cover_art = $request->file('cover_art')->store('books/cover-art', 'public');
             
             $book_file = $request->file('book_file');
             if ( !empty($book_file) ) {

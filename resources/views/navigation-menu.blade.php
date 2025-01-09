@@ -49,8 +49,8 @@
                                 <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     {{ __('Post Job') }}
                                 </a>
-                                <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                    {{ __('Show Jobs') }}
+                                <a href="{{ route('job.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Job Listings') }}
                                 </a>
                                 <a href="{{ route('category.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     {{ __('Categories') }}
@@ -108,8 +108,8 @@
                                 <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     {{ __('Post Job') }}
                                 </a>
-                                <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                    {{ __('Show Jobs') }}
+                                <a href="{{ route('job.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __('Show Job Listings') }}
                                 </a>
                             </div>
                         </div>
@@ -238,8 +238,8 @@
                         <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             {{ __('Post Job') }}
                         </a>
-                        <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            {{ __('Show Jobs') }}
+                        <a href="{{ route('job.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Show Job Listings') }}
                         </a>
                     </div>
                 </div>
@@ -277,8 +277,8 @@
                         <a href="{{ route('job.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             {{ __('Post Job') }}
                         </a>
-                        <a href="{{ route('job.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            {{ __('Show Jobs') }}
+                        <a href="{{ route('job.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Show Job Listings') }}
                         </a>
                     </div>
                 </div>

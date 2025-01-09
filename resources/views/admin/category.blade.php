@@ -26,7 +26,7 @@
 
                                     <!-- Quote Details -->
                                     <div class="w-full md:w-6/6">
-                                        <a target="_blank" href="" class="text-blue-500 hover:underline">
+                                        <a href="#category" class="text-blue-500 hover:underline">
                                             {{ $category->category }}
                                         </a>
                                         

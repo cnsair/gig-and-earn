@@ -11,10 +11,6 @@
 
                 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
                     <div class="max-w-xl">
-                      
-                        <h1 class="mt-3 text-2xl font-medium text-gray-900">
-                            Start Here
-                        </h1>
                         
                         <x-validation-errors class="mb-4" />
 
@@ -32,22 +28,15 @@
                             @endif
 
                             <div>
-                                <x-label for="category" value="{{ __('Category') }}" />
-                                <select class="block mt-1 w-full" required name="category">
-                                    <option selected value="digital-marketing">Digital Marketing</option>
-                                    <option value="sales">Sales</option>
-                                    <option value="content-marketing">Content Marketing</option>
-                                    <option value="graphic-design">Graphics Design</option>
-                                    <option value="software-engineering">Software Engineering</option>
-                                    <option value="web-design">Web Design</option>
-                                    <option value="mobile-development">Mobile Development</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="information-technology">Information Technology</option>
-                                    <option value="database-management">Database Management</option>
-                                    <option value="cyber-security">Cyber Security</option>
-                                    <option value="dev-ops">Dev Ops</option>
+                                <x-label for="category_id" value="{{ __('Category') }}" />
+                                <select class="block mt-1 w-full" required name="category_id">
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" >
+                                            {{ $category->category }}
+                                        </option>
+                                    @endforeach
                                 </select>
-                                <x-input-error for="category" class="mt-2" />
+                                <x-input-error for="category_id" class="mt-2" />
                             </div>
 
                             <div>
@@ -64,7 +53,7 @@
 
                             <div>
                                 <x-label for="web_address" value="{{ __('Web Address') }}" />
-                                <x-input id="web_address" class="block mt-1 w-full" type="text" name="web_address" :value="old('web_address')" required placeholder="e.g. gigandearn.com/en/careers" />
+                                <x-input id="web_address" class="block mt-1 w-full" type="text" name="web_address" :value="old('web_address')" placeholder="e.g. gigandearn.com/en/careers" />
                                 <x-input-error for="web_address" class="mt-2" />
                             </div>
 
@@ -81,6 +70,18 @@
                             </div>
 
                             <div>
+                                <x-label for="requirement" value="{{ __('Requirement') }}" />
+                                <textarea id="requirement" class="block mt-1 w-full" name="requirement" >{{ old('requirement') }}</textarea>
+                                <x-input-error for="requirement" class="mt-2" />
+                            </div>
+
+                            <div>
+                                <x-label for="benefit" value="{{ __('Benefit') }}" />
+                                <textarea id="benefit" class="block mt-1 w-full" name="benefit" >{{ old('benefit') }}</textarea>
+                                <x-input-error for="benefit" class="mt-2" />
+                            </div>
+
+                            <div>
                                 <x-label for="description" value="{{ __('Description') }}" />
                                 <textarea id="description" class="block mt-1 w-full" type="text" name="description" >{{ old('description') }}</textarea>
                                 <x-input-error for="description" class="mt-2" />
@@ -88,7 +89,7 @@
 
                             <div>
                                 <x-label for="file" value="{{ __('Company Logo') }}" />
-                                <x-input id="file" class="block mt-1 w-full" type="file" name="file" :value="old('file')" required />
+                                <x-input id="file" class="block mt-1 w-full" type="file" name="file" :value="old('file')" />
                                 <x-input-error for="file" class="mt-2" />
                             </div>
                         
