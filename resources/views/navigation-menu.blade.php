@@ -241,6 +241,9 @@
                         <a href="{{ route('job.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             {{ __('Show Job Listings') }}
                         </a>
+                        <a href="{{ route('category.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {{ __('Categories') }}
+                        </a>
                     </div>
                 </div>
                         

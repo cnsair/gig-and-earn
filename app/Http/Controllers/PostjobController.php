@@ -23,8 +23,6 @@ class PostjobController extends Controller
     {
         $post_jobs = Postjob::query()->orderBy('id', 'desc')->paginate(10);
         return view('common.index-job', compact('post_jobs'));
-
-        // return view('admin.show')->with('prof_vid_section', $post_job);
     }
     
     /**
@@ -34,7 +32,6 @@ class PostjobController extends Controller
     {
         $this->authorize('create', Postjob::class);
         
-        // return view('common.post-job');
         $post_jobs = Postjob::with('category')->get(); // Eager load categories
         $categories = Category::all(); // Fetch all categories for dropdown
     
@@ -101,16 +98,12 @@ class PostjobController extends Controller
      */
     public function update( PostjobRequest $request, $job )
     {
-        // \Illuminate\Support\Facades\Log::info('User: ' . Auth::user()->id . ', Job owner: ' . $job);
-        // tail -f storage/logs/laravel.log
-
         $job = Postjob::findOrFail($job);
         $this->authorize('update', $job);
 
         $request->user()->fill($request->validated());
 
         if ( $request ) {
-
             $job->category_id = $request->input('category_id');
             $job->title = $request->input('title');
             $job->company = $request->input('company');
@@ -156,6 +149,6 @@ class PostjobController extends Controller
             Storage::disk('public')->delete($job->file); // Delete old file
         }
 
-        return Redirect::route('job.show')->with('status', 'success');
+        return Redirect::route('job.index')->with('status', 'success');
     }
 }

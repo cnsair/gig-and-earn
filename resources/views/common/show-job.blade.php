@@ -33,7 +33,7 @@
                                             $file = $job->file;
                                             $photo_path = $file ? asset('storage/' . $file) : asset('assets/images/logo/favicon.png');
                                         @endphp
-                                        <img class="w-25 h-25 md:w-48 md:h-48 object-contain" src="{{ $photo_path }}" alt="{{ $job->company ?? 'Company' }} Logo">
+                                        <img class="mx-auto company-logo" src="{{ $photo_path }}" alt="{{ $job->company ?? 'Company' }} Logo">
                                     </div>
 
                                     <!-- Job Details -->
@@ -41,9 +41,6 @@
                                         <h2 class="text-xl font-semibold text-gray-800 mb-4">Job Details</h2>
                                         <p class="text-gray-600 mb-2">
                                             <span class="font-bold">Category:</span> {{ $job->category->category }}
-                                        </p>
-                                        <p class="text-gray-600 mb-2">
-                                            <span class="font-bold">Type:</span> {{ $job->type }}
                                         </p>
                                         <p class="text-gray-600 mb-2">
                                             <span class="font-bold">Salary:</span> {{ $job->price_range }}
@@ -92,9 +89,15 @@
 
                                 <!-- Apply Now Button -->
                                 <div class="mt-8">
-                                    <a href="https://{{ $job->web_address ?? '#' }}" target="_blank" class="inline-block bg-blue-500 text-white text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-blue-600 transition duration-300">
-                                        Apply Now
-                                    </a>
+                                    @if ($job->web_address)
+                                        <a href="https://{{ $job->web_address }}" target="_blank" class="inline-block bg-blue-500 text-white text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-blue-600 transition duration-300">
+                                            Apply Now
+                                        </a>
+                                    @else
+                                        <a href="#{{ $job->title }}" class="inline-block bg-blue-500 text-white text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-blue-600 transition duration-300">
+                                            Link Not Available
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
 
